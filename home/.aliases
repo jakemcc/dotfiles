@@ -1,0 +1,21 @@
+
+# general
+alias l='ls'
+alias la="ls -lach"
+alias lsd="ls | grep ^d"
+alias mkdir='mkdir -p'
+alias grep='grep --color=auto'
+
+if [[ "$MYOS" != "osx" ]]; then
+  alias ls='ls --color=auto'
+fi
+
+# ease of jumping
+alias code='cd ~/src'
+alias grr=$(which gr)
+
+alias start-elastic='elasticsearch -f -D es.config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
+
+alias to-master='cd && mr run git checkout master && cd -'
+
+alias spair='pairwise list | selecta | xargs pairwise connect'

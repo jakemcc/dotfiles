@@ -1,0 +1,36 @@
+[src/outpace/starwood/starwood_guest]
+checkout = git clone 'git@github.com:outpace/starwood_guest.git' 'starwood_guest'
+update = echo 'Chain starwood_guest, no need to update in this config'
+chain = true
+
+[src/outpace/oe2]
+checkout = git clone 'git@github.com:outpace/oe2.git' 'oe2'
+
+[.homesick/repos/dotfiles]
+checkout = git clone 'git@github.com:jakemcc/dotfiles.git' 'dotfiles'
+update = $HOME/.homesick/repos/homeshick/bin/homeshick pull dotfiles
+
+[.homesick/repos/private-dotfiles]
+checkout = git clone 'git@bitbucket.org:jakemcc/private-dotfiles.git' 'private-dotfiles'
+update = $HOME/.homesick/repos/homeshick/bin/homeshick pull private-dotfiles
+
+[.homesick/repos/outpace-emacs.d]
+checkout = git clone 'git@github.com:outpace/emacs.d.git' 'outpace-emacs.d'
+update = $HOME/.homesick/repos/homeshick/bin/homeshick pull outpace-emacs.d
+
+[.homesick/repos/homeshick]
+checkout = git clone 'git://github.com/andsens/homeshick.git' 'homeshick'
+update = $HOME/.homesick/repos/homeshick/bin/homeshick pull homeshick
+
+[.homesick/scm_breeze]
+checkout = git clone 'git@github.com:ndbroadbent/scm_breeze.git' 'scm_breeze'
+update = echo "Not pulling scm_breeze"
+
+[src/outpace/clojure-utils]
+checkout = git clone 'git@github.com:outpace/clojure-utils.git' 'clojure-utils'
+
+[src/outpace/pairwise]
+checkout = git clone 'git@github.com:outpace/pairwise.git' 'pairwise'
+
+[src/outpace/shift]
+checkout = git clone 'git@github.com:outpace/shift.git' 'shift'

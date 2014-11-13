@@ -1,0 +1,16 @@
+[user]
+  name = Jake McCrary
+  email = jake@jakemccrary.com
+[alias]
+  co = checkout
+  ci = commit
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[core]
+	excludesfile = ~/.gitignore
+[push]
+  default = tracking
+[apply]
+  whitespace = nowarn

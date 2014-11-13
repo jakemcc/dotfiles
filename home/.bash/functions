@@ -1,0 +1,40 @@
+# -*- mode: Shell-script; -*-
+
+function_exists() {
+    declare -f -F $1 > /dev/null
+    return $?
+}
+
+my_pathmunge () {
+    local path=$(echo $PATH | sed "s#:$1##" | sed "s#$1:##")
+    if ! echo $path | egrep -s "(^|:)$1($|:)" > /dev/null ; then
+        if [ "$2" = "after" ] ; then
+            export PATH=$path:$1
+        else
+            export PATH=$1:$path
+        fi
+    fi
+}
+
+manpathmunge () {
+    if ! echo $MANPATH | egrep -s "(^|:)$1($|:)" > /dev/null ; then
+        if [ "$2" = "after" ] ; then
+            export MANPATH=$MANPATH:$1
+        else
+            export MANPATH=$1:$MANPATH
+        fi
+    fi
+}
+
+# Pretty prints your PATH. One entry per line.
+function ppath () {
+    echo $PATH | perl -a -n -F/:/ -e 'foreach (@F) { print "$_\n" }'
+}
+
+# display
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+# calculator
+calc(){ awk "BEGIN{ print $* }" ;}

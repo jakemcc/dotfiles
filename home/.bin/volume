@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ "$1" == "" ]; then
+  echo "Need to supply a percentage as a decimal"
+  exit 1
+fi
+
+vol=$(perl -e "print int(65536 * ($1 / 100))")
+echo "Setting volume to $1 ($vol)"
+pacmd set-sink-volume 0 $vol
