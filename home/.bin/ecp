@@ -1,0 +1,2 @@
+#!/bin/sh
+TMP=$(mktemp ecp.XXXXXXXXX) && cat > $TMP && ec $TMP ; rm $TMP

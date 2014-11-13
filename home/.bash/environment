@@ -1,0 +1,42 @@
+# -*- mode: Shell-script; -*-
+
+# List: Colors
+WHITE="\[\033[1;37m\]"
+BRIGHTGREEN="\[\033[1;32m\]"
+GREEN="\[\033[0;32m\]"
+RED="\[\033[0;31m\]"
+BRIGHTRED="\[\033[1;31m\]"
+CYAN="\[\033[0;36m\]"
+BRIGHTCYAN="\[\033[1;36m\]"
+GRAY="\[\033[0;37m\]"
+BLUE="\[\033[0;34m\]"
+BRIGHTBLUE="\[\033[1;34m\]"
+NOCOLOR="\[\033[00m\]"
+
+# Detect: OS Platform
+case `uname -s` in
+    "Linux")    MYOS="linux";;
+    "SunOS")   MYOS="solaris";;
+    "Darwin")   MYOS="osx";;
+    "FreeBSD")  MYOS="freebsd";;
+    "CYGWIN_NT-5.1")    MYOS="cygwin";;
+    "CYGWIN_NT-6.1-WOW64") MYOS="cygwin";;
+    *)  MYOS="unknown";;
+esac
+
+# Detect: machine
+MACHINENAME=$(hostname -s | tr '[:upper:]' '[:lower:]')
+
+# Detect: Shell
+MYSHELL=`basename $SHELL`
+
+# Detect: User
+if [ "$USER" == 'root' ]; then
+    USERCOLOR="${RED}"
+elif [ "$USER" != 'jmccrary' ]; then
+    USERCOLOR="${BRIGHTCYAN}"
+elif [ "$USER" != 'jake' ]; then
+    USERCOLOR="${BRIGHTCYAN}"
+else
+    USERCOLOR="${BRIGHTGREEN}"
+fi
