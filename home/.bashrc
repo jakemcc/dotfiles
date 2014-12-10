@@ -57,8 +57,6 @@ my_pathmunge "$HOME/opt/bin"
 [[ -f "$HOME/.bash/$MACHINENAME.private" ]] && source "$HOME/.bash/$MACHINENAME.private"
 [[ -f "$HOME/.bash/$MYOS" ]] && source "$HOME/.bash/$MYOS"
 
-# read/write history immediatly
-PROMPT_COMMAND="history -a; history -r; $PROMPT_COMMAND"
 
 function timer_start {
   timer=${timer:-$SECONDS}
@@ -71,6 +69,9 @@ function timer_stop {
 
 trap 'timer_start' DEBUG
 PROMPT_COMMAND=timer_stop
+
+# read/write history immediatly
+PROMPT_COMMAND="history -a; history -r; $PROMPT_COMMAND"
 
 # set PS1 with git completions --------------------------------
 GIT_PS1_SHOWDIRTYSTATE=true
