@@ -8,6 +8,7 @@ update = $HOME/.homesick/repos/homeshick/bin/homeshick pull dotfiles
 [.homesick/repos/private-dotfiles]
 checkout = git clone 'git@bitbucket.org:jakemcc/private-dotfiles.git' 'private-dotfiles'
 update = $HOME/.homesick/repos/homeshick/bin/homeshick pull private-dotfiles
+chain = true
 
 [.homesick/repos/outpace-emacs.d]
 checkout = git clone 'git@github.com:outpace/emacs.d.git' 'outpace-emacs.d'
