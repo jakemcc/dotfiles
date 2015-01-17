@@ -101,7 +101,7 @@ App.focusOrStart = function ( title ) {
   var apps = App.allWithTitle( title );
   if (_.isEmpty(apps)) {
     api.alert(rageOfDongers + " Starting " + title);
-    api.launch(title)
+    api.launch(title);
     return;
   }
 
@@ -112,7 +112,7 @@ App.focusOrStart = function ( title ) {
 
   activeWindows = _(windows).reject(function(win) { return win.isWindowMinimized();});
   if (_.isEmpty(activeWindows)) {
-    api.alert(whyLook +" All windows minimized for " + title);
+    api.alert(whyLook + " All windows minimized for " + title);
     return;
   }
 
