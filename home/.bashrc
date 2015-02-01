@@ -68,7 +68,8 @@ function timer_stop {
 }
 
 trap 'timer_start' DEBUG
-PROMPT_COMMAND=timer_stop
+
+PROMPT_COMMAND="timer_stop; $PROMPT_COMMAND"
 
 # read/write history immediatly
 PROMPT_COMMAND="history -a; history -r; $PROMPT_COMMAND"
