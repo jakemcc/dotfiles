@@ -138,6 +138,7 @@ api.bind('e', cmdCtrl, function() {App.focusOrStart('Emacs');});
 api.bind('b', cmdCtrl , function() {App.focusOrStart('Google Chrome');});
 api.bind('m', cmdCtrl , function() {App.focusOrStart('Slack');});
 api.bind('r', cmdCtrl , function() {App.focusOrStart('Rdio');});
+api.bind('k', cmdCtrl , function() {App.focusOrStart('KeePassX');});
 
 
 
