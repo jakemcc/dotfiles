@@ -20,3 +20,5 @@
   default = tracking
 [apply]
   whitespace = nowarn
+[init]
+	templatedir = ~/.git-templates
