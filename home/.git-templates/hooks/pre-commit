@@ -8,6 +8,14 @@ else
     against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
 fi
 
+
+git stash -q --keep-index
+
+function quit {
+    git stash pop -q
+    exit $1
+}
+
 # Redirect output to stderr.
 exec 1>&2
 
@@ -16,7 +24,7 @@ files_with_nocommit=$(git diff --cached --name-only --diff-filter=ACMRTU -z $aga
 if [[ "x${files_with_nocommit}x" != "xx" ]]; then
     echo "File being committed with 'nocommit' in it:"
     echo $files_with_nocommit | tr ' ' '\n'
-    exit 1
+    quit 1
 fi
 
-exit 0
+quit 0
