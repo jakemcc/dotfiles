@@ -79,7 +79,7 @@ GIT_PS1_SHOWDIRTYSTATE=true
 GIT_COMPLETION=$HOME/.bash/bash_completion.d/git-completion.bash
 if [ -f $GIT_COMPLETION ]; then
   . $GIT_COMPLETION
-  export PS1='[last: ${timer_show}s] \[\033[0;31m\]$(date +%T) \[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]$(__git_ps1 " (%s)")\[\033[00m\] $OUTPACE_ENV\n$ '
+  export PS1='$? [last: ${timer_show}s] \[\033[0;31m\]$(date +%T) \[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]$(__git_ps1 " (%s)")\[\033[00m\] $OUTPACE_ENV\n$ '
 fi
 
 [[ -f "$HOME/.scm_breeze/scm_breeze.sh" ]] && source "$HOME/.scm_breeze/scm_breeze.sh"
