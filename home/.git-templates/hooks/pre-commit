@@ -34,13 +34,11 @@ function quit {
 exec 1>&2
 files_with_nocommit=$(git diff --cached --name-only --diff-filter=ACM $against | xargs grep -i "nocommit" -l | tr '\n' ' ')
 
-red='\033[0;31m'
-NC='\033[0m'
-
 if [[ "x${files_with_nocommit}x" != "xx" ]]; then
+    tput setaf 1
     echo "${red}File being committed with 'nocommit' in it:"
     echo $files_with_nocommit | tr ' ' '\n'
-    echo "${NC}"
+    tput setaf sgr0
     quit 1
 fi
 
