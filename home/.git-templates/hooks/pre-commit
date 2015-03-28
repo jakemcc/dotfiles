@@ -8,22 +8,39 @@ else
     against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
 fi
 
+patch_filename=$(mktemp -t commit_hook_changes)
+git diff --exit-code --binary --ignore-submodules --no-color > $patch_filename
+has_unstaged_changes=$?
 
-git stash -q --keep-index
+if [[ $has_unstaged_changes != 0 ]]; then
+    echo "Stashing unstaged changes in $patch_filename."
+    git checkout -- .
+fi
 
 function quit {
-    git stash pop -q
+    if [[ $has_unstaged_changes != 0 ]]; then
+        git apply $patch_filename
+        if [[ $? != 0 ]]; then
+            git checkout -- .
+            git apply $patch_filename
+        fi
+    fi
+
     exit $1
 }
-
 # Redirect output to stderr.
-exec 1>&2
 
-files_with_nocommit=$(git diff --cached --name-only --diff-filter=ACMRTU -z $against | LC_ALL=C tr '\0' ' ' | xargs grep -i "nocommit" -l | tr '\n' ' ')
+
+exec 1>&2
+files_with_nocommit=$(git diff --cached --name-only --diff-filter=ACM $against | xargs grep -i "nocommit" -l | tr '\n' ' ')
+
+red='\033[0;31m'
+NC='\033[0m'
 
 if [[ "x${files_with_nocommit}x" != "xx" ]]; then
-    echo "File being committed with 'nocommit' in it:"
+    echo "${red}File being committed with 'nocommit' in it:"
     echo $files_with_nocommit | tr ' ' '\n'
+    echo "${NC}"
     quit 1
 fi
 
