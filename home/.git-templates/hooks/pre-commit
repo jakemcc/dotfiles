@@ -28,10 +28,11 @@ function quit {
 
     exit $1
 }
+
+
 # Redirect output to stderr.
-
-
 exec 1>&2
+
 files_with_nocommit=$(git diff --cached --name-only --diff-filter=ACM $against | xargs grep -i "nocommit" -l | tr '\n' ' ')
 
 if [[ "x${files_with_nocommit}x" != "xx" ]]; then
