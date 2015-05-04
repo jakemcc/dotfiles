@@ -67,8 +67,13 @@ function timer_stop {
   unset timer
 }
 
+
 trap 'timer_start' DEBUG
-PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
+if [ "$PROMPT_COMMAND" == "" ]; then
+  PROMPT_COMMAND="timer_stop"
+else
+  PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
+fi
 
 # read/write history immediatly
 PROMPT_COMMAND="history -a; history -r; $PROMPT_COMMAND"
