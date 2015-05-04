@@ -68,8 +68,7 @@ function timer_stop {
 }
 
 trap 'timer_start' DEBUG
-
-PROMPT_COMMAND="timer_stop; $PROMPT_COMMAND"
+PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
 
 # read/write history immediatly
 PROMPT_COMMAND="history -a; history -r; $PROMPT_COMMAND"
@@ -121,5 +120,3 @@ if [ -d "$HOME/.homesick" ]; then
 else
   echo "Install homeshick https://github.com/andsens/homeshick"
 fi
-
-[[ -f "$HOME/.outpace/bashrc" ]] && source "$HOME/.outpace/bashrc"
