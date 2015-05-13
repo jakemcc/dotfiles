@@ -6,6 +6,8 @@ alias lsd="ls | grep ^d"
 alias mkdir='mkdir -p'
 alias grep='grep --color=auto'
 
+alias cpu='top -o cpu'
+
 if [[ "$MYOS" != "osx" ]]; then
   alias ls='ls --color=auto'
 fi
