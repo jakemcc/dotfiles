@@ -39,7 +39,7 @@ if [[ "x${files_with_nocommit}x" != "xx" ]]; then
     tput setaf 1
     echo "File being committed with 'nocommit' in it:"
     echo $files_with_nocommit | tr ' ' '\n'
-    tput setaf sgr0
+    tput sgr0
     quit 1
 fi
 
