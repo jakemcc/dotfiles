@@ -37,7 +37,7 @@ files_with_nocommit=$(git diff --cached --name-only --diff-filter=ACM $against |
 
 if [[ "x${files_with_nocommit}x" != "xx" ]]; then
     tput setaf 1
-    echo "${red}File being committed with 'nocommit' in it:"
+    echo "File being committed with 'nocommit' in it:"
     echo $files_with_nocommit | tr ' ' '\n'
     tput setaf sgr0
     quit 1
