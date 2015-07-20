@@ -2,7 +2,7 @@
 
 [[ -s `brew --prefix`/bin/fasd ]] && eval "$(fasd --init auto)"
 
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 # open Emacs.app
 alias e=/Applications/Emacs.app/Contents/MacOS/Emacs
