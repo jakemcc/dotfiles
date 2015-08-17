@@ -18,12 +18,3 @@ update = $HOME/.homesick/repos/homeshick/bin/homeshick pull homeshick
 [.homesick/scm_breeze]
 checkout = git clone 'git@github.com:ndbroadbent/scm_breeze.git' 'scm_breeze'
 update = echo "Not pulling scm_breeze"
-
-[src/outpace/clojure-utils]
-checkout = git clone 'git@github.com:outpace/clojure-utils.git' 'clojure-utils'
-
-[src/outpace/pairwise]
-checkout = git clone 'git@github.com:outpace/pairwise.git' 'pairwise'
-
-[src/outpace/shift]
-checkout = git clone 'git@github.com:outpace/shift.git' 'shift'
