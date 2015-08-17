@@ -10,6 +10,7 @@
 
   # Deletes the extraneous branches with a soft -d
   remove-extraneous-branches = "!f() { git extraneous-branches; }; git branch -d `f`"
+  praise = blame
 [color]
   diff = auto
   status = auto
