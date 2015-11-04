@@ -126,3 +126,4 @@ if [ -d "$HOME/.homesick" ]; then
 else
   echo "Install homeshick https://github.com/andsens/homeshick"
 fi
+source /usr/local/bin/virtualenvwrapper.sh
