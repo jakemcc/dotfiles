@@ -1,0 +1,2 @@
+\set PROMPT1 '%M:%/\n%R%#%x '
+\set PROMPT2 '%# '
