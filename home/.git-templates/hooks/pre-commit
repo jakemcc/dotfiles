@@ -8,19 +8,19 @@ else
     against=$(git hash-object -t tree /dev/null)
 fi
 
-patch_filename=$(mktemp -t commit_hook_changes)
+patch_filename=$(mktemp -t commit_hook_changes.XXXXXXX)
 git diff --exit-code --binary --ignore-submodules --no-color > $patch_filename
 has_unstaged_changes=$?
 
-if [[ $has_unstaged_changes != 0 ]]; then
+if [ $has_unstaged_changes -ne 0 ]; then
     echo "Stashing unstaged changes in $patch_filename."
     git checkout -- .
 fi
 
-function quit {
-    if [[ $has_unstaged_changes != 0 ]]; then
+quit() {
+    if [ $has_unstaged_changes -ne 0 ]; then
         git apply $patch_filename
-        if [[ $? != 0 ]]; then
+        if [ $? -ne 0 ]; then
             git checkout -- .
             git apply $patch_filename
         fi
@@ -35,7 +35,7 @@ exec 1>&2
 
 files_with_nocommit=$(git diff --cached --name-only --diff-filter=ACM $against | xargs -I{} grep -i "nocommit" -l {} | tr '\n' ' ')
 
-if [[ "x${files_with_nocommit}x" != "xx" ]]; then
+if [ "x${files_with_nocommit}x" != "xx" ]; then
     tput setaf 1
     echo "File being committed with 'nocommit' in it:"
     IFS=$'\n'
@@ -48,7 +48,7 @@ fi
 
 files_with_ns_metadata=$(git diff --cached --name-only --diff-filter=ACM $against | xargs -I{} grep -i '(ns.*^' -l {} | tr '\n' ' ')
 
-if [[ "x${files_with_ns_metadata}x" != "xx" ]]; then
+if [ "x${files_with_ns_metadata}x" != "xx" ]; then
     tput setaf 1
     echo "File being committed with ns metadata on it:"
     IFS=$'\n'
