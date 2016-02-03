@@ -57,7 +57,6 @@ my_pathmunge "$HOME/opt/bin"
 [[ -f "$HOME/.bash/$MACHINENAME.private" ]] && source "$HOME/.bash/$MACHINENAME.private"
 [[ -f "$HOME/.bash/$MYOS" ]] && source "$HOME/.bash/$MYOS"
 
-
 function timer_start {
   timer=${timer:-$SECONDS}
 }
@@ -76,8 +75,12 @@ else
   PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
 fi
 
-# read/write history immediatly
-PROMPT_COMMAND="history -a; history -r; $PROMPT_COMMAND"
+# History stuff from http://unix.stackexchange.com/questions/200225/search-history-from-multiple-bash-session-only-when-ctrl-r-is-used-not-when-a
+# Whenever a command is executed, write it to a global history
+PROMPT_COMMAND="history -a ~/.bash_history.global; $PROMPT_COMMAND"
+
+# On C-r run the swap_history_reverse.sh script
+bind -x '"\C-r": "~/.bin/swap_history_reverse.sh"'
 
 # set PS1 with git completions --------------------------------
 GIT_PS1_SHOWDIRTYSTATE=true
