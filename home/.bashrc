@@ -94,7 +94,7 @@ fi
 
 [[ -f "/usr/local/opt/chruby/share/chruby/chruby.sh" ]] && source /usr/local/opt/chruby/share/chruby/chruby.sh
 [[ -f "/usr/local/share/chruby/auto.sh" ]] && source /usr/local/share/chruby/auto.sh
-function_exists chruby && chruby ruby-1.9
+function_exists chruby && chruby ruby-2.3.0
 
 
 # Script for ensuring only one instance of gpg-agent is running
