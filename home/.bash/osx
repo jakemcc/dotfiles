@@ -6,8 +6,6 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 export EDITOR=$HOME/.bin/ec-nw
 
-# my_pathmunge $MIGRATIONS
-
 alias finished='say -v Vicki finished'
 
 my_pathmunge "$HOME/src/keep-around/cljs-environments/depot_tools"
