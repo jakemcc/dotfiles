@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# update_emacs_env
+
+/usr/local/bin/emacsclient -no-wait -c -a "/Applications/Emacs.app/Contents/MacOS/Emacs" $*

@@ -1,14 +1,10 @@
 # -*- mode: Shell-script; -*-
 
-[[ -s `brew --prefix`/bin/fasd ]] && eval "$(fasd --init auto)"
+[[ -s $(brew --prefix)/bin/fasd ]] && eval "$(fasd --init auto)"
 
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
-# open Emacs.app
-alias e=/Applications/Emacs.app/Contents/MacOS/Emacs
-
-# export MIGRATIONS_HOME="$HOME/bin/mybatis"
-# export MIGRATIONS="$MIGRATIONS_HOME/bin"
+export EDITOR=$HOME/.bin/ec-nw
 
 # my_pathmunge $MIGRATIONS
 
