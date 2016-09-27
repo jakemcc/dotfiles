@@ -12,6 +12,3 @@ if [[ "$MYOS" != "osx" ]]; then
   alias ls='ls --color=auto'
 fi
 
-# ease of jumping
-alias code='cd ~/src'
-alias grr=$(which gr)
