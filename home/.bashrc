@@ -79,8 +79,8 @@ fi
 # Whenever a command is executed, write it to a global history
 PROMPT_COMMAND="history -a ~/.bash_history.global; $PROMPT_COMMAND"
 
-# On C-r run the swap_history_reverse.sh script
-bind -x '"\C-r": "~/.bin/swap_history_reverse.sh"'
+# On C-r run the history.sh script
+bind -x '"\C-r": "~/.bin/history.sh"'
 
 # set PS1 with git completions --------------------------------
 GIT_PS1_SHOWDIRTYSTATE=true
