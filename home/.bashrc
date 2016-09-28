@@ -79,8 +79,8 @@ fi
 # Whenever a command is executed, write it to a global history
 PROMPT_COMMAND="history -a ~/.bash_history.global; $PROMPT_COMMAND"
 
-# On C-r run the history.sh script
-bind -x '"\C-r": "~/.bin/history.sh"'
+# On C-r set HISTFILE and run hh
+bind -x '"\C-r": "HISTFILE=~/.bash_history.global hh"'
 
 # set PS1 with git completions --------------------------------
 GIT_PS1_SHOWDIRTYSTATE=true
