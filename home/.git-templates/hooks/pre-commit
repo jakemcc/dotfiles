@@ -46,17 +46,4 @@ if [ "x${files_with_nocommit}x" != "xx" ]; then
     quit 1
 fi
 
-files_with_ns_metadata=$(git diff --cached --name-only --diff-filter=ACM $against | xargs -I{} grep -i '(ns.*^' -l {} | tr '\n' ' ')
-
-if [ "x${files_with_ns_metadata}x" != "xx" ]; then
-    tput setaf 1
-    echo "File being committed with ns metadata on it:"
-    IFS=$'\n'
-    for f in $(git diff --cached --name-only --diff-filter=ACM $against | xargs -I{} grep -i '(ns.*^' -l {}); do
-        echo $f
-    done
-    tput sgr0
-    quit 1
-fi
-
 quit 0
