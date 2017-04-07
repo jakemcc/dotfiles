@@ -2,14 +2,34 @@
 
 set -e
 
+cache="$HOME/.connect-db/"
+
+mkdir -p ~/.connect-db
+
 host=$(grep -v '#' ~/.pgpass | sed '/^$/d' | cut -f 1 -d ':' | selecta)
 entry=$(grep "$host" ~/.pgpass)
 port=$(echo "$entry" | cut -f 2 -d ':')
 user=$(echo "$entry" | cut -f 4 -d ':')
 
 echo "Connecting to $host with $user, what database?"
-read -r database
+if [ -e "$cache/$host.txt" ]; then
+    database=$(cat "$cache/$host.txt" <( echo "NEW DB" ) | selecta)
+    if [ "$database" == "NEW DB" ]; then
+        echo "Type in your database:"
+        read -r database
+    fi
+else
+    read -r database
+fi
+
 
 cmd="psql --host=$host --port=$port -U $user $database"
 echo "Running: $cmd"
 eval "$cmd"
+
+if [ -a "$cache/$host.txt" ] && grep -q "$database" "$cache/$host.txt"; then
+    echo ""
+else
+    echo "$database" >> "$cache/$host.txt"
+fi
+
