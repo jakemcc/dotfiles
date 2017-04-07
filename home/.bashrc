@@ -130,3 +130,5 @@ else
   echo "Install homeshick https://github.com/andsens/homeshick"
 fi
 source /usr/local/bin/virtualenvwrapper.sh
+
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
