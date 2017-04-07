@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+host=$(grep -v '#' ~/.pgpass | sed '/^$/d' | cut -f 1 -d ':' | selecta)
+entry=$(grep "$host" ~/.pgpass)
+port=$(echo "$entry" | cut -f 2 -d ':')
+user=$(echo "$entry" | cut -f 4 -d ':')
+
+echo "Connecting to $host with $user, what database?"
+read -r database
+
+cmd="psql --host=$host --port=$port -U $user $database"
+echo "Running: $cmd"
+eval "$cmd"
