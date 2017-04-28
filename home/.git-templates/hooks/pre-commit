@@ -13,8 +13,14 @@ git diff --exit-code --binary --ignore-submodules --no-color > $patch_filename
 has_unstaged_changes=$?
 
 if [ $has_unstaged_changes -ne 0 ]; then
-    echo "Stashing unstaged changes in $patch_filename."
-    git checkout -- .
+    # Unstaged changes have been found
+    if [ ! -f "$patch_filename" ]; then
+        echo "Failed to create a patch file"
+        exit 1
+    else
+        echo "Stashing unstaged changes in $patch_filename."
+        git checkout -- .
+    fi
 fi
 
 quit() {
