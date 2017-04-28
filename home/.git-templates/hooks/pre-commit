@@ -9,7 +9,7 @@ else
 fi
 
 patch_filename=$(mktemp -t commit_hook_changes.XXXXXXX)
-git diff --exit-code --binary --ignore-submodules --no-color > $patch_filename
+git diff --exit-code --binary --ignore-submodules --no-color > "$patch_filename"
 has_unstaged_changes=$?
 
 if [ $has_unstaged_changes -ne 0 ]; then
@@ -25,7 +25,7 @@ fi
 
 quit() {
     if [ $has_unstaged_changes -ne 0 ]; then
-        git apply $patch_filename
+        git apply "$patch_filename"
         if [ $? -ne 0 ]; then
             git checkout -- .
             git apply $patch_filename
