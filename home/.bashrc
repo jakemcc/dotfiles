@@ -98,7 +98,7 @@ function_exists chruby && chruby ruby-2.3.0
 
 # Imperative that this environment variable always reflects the output
 # of the tty command.
-GPG_TTY=`tty`
+GPG_TTY=$(tty)
 export GPG_TTY
 
 export ANSIBLE_COW_SELECTION=small
