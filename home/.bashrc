@@ -96,24 +96,6 @@ fi
 [[ -f "/usr/local/share/chruby/auto.sh" ]] && source /usr/local/share/chruby/auto.sh
 function_exists chruby && chruby ruby-2.3.0
 
-
-# Script for ensuring only one instance of gpg-agent is running
-# and if there is not one, start an instance of gpg-agent.
-if test -f $HOME/.gpg-agent-info && kill -0 `cut -d: -f 2 $HOME/.gpg-agent-info` 2>/dev/null; then
-  GPG_AGENT_INFO=`cat $HOME/.gpg-agent-info`
-  #SSH_AUTH_SOCK=`cat $HOME/.ssh-auth-sock`
-  #SSH_AGENT_PID=`cat $HOME/.ssh-agent-pid`
-  export GPG_AGENT_INFO
-  #export SSH_AUTH_SOCK
-  #export SSH_AGENT_PID
-else
-  if hash gpg-agent 2> /dev/null; then
-    eval `gpg-agent --daemon --write-env-file "$HOME/.gpg-agent-info"`
-    echo $GPG_AGENT_INFO >$HOME/.gpg-agent-info
-    #echo $SSH_AUTH_SOCK > $HOME/.ssh-auth-sock
-    #echo $SSH_AGENT_PID > $HOME/.ssh-agent-pid
-  fi
-fi
 # Imperative that this environment variable always reflects the output
 # of the tty command.
 GPG_TTY=`tty`
