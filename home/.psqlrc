@@ -1,4 +1,10 @@
-\set PROMPT1 '%M:%/\n%R%#%x '
+\set PROMPT1 '%`date +%H:%M:%S` %M:%/\n%R%#%x '
 \set PROMPT2 '%# '
+
 \pset null '(null)'
+
 \x auto
+\timing
+\set HISTFILE ~/.psql_history- :DBNAME
+\set HISTCONTROL ignoredups
+\set COMP_KEYWORD_CASE upper
