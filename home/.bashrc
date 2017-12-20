@@ -61,8 +61,19 @@ function timer_start {
   timer=${timer:-$SECONDS}
 }
 
+# Adapted from
+# https://github.com/gfredericks/dotfiles/blob/d070e257a1a231196c04467ca46e742e32552868/base/.bashrc.base.symlink#L90-L103
+
 function timer_stop {
-  timer_show=$(($SECONDS - $timer))
+  the_seconds=$(($SECONDS - $timer))
+
+  # Hide results for <2sec to reduce noise
+  # if [[ $the_seconds > 1 ]]; then
+      timer_show="`format-duration seconds $the_seconds`"
+  # else
+  #     timer_show=""
+  # fi
+
   unset timer
 }
 
@@ -90,7 +101,7 @@ GIT_PS1_SHOWDIRTYSTATE=true
 GIT_COMPLETION="${HOME}/.bash/bash_completion.d/git-completion.bash"
 if [ -f "$GIT_COMPLETION" ]; then
   . "$GIT_COMPLETION"
-  export PS1='\[\033[00m\]$? [last: ${timer_show}s] \[\033[0;31m\]$(date +%T) \[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]$(__git_ps1 " (%s)")\[\033[00m\] $OUTPACE_ENV\n$ '
+  export PS1='\[\033[00m\]$? [last: ${timer_show}] \[\033[0;31m\]$(date +%T) \[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]$(__git_ps1 " (%s)")\[\033[00m\] $OUTPACE_ENV\n$ '
 fi
 
 [[ -f "$HOME/.scm_breeze/scm_breeze.sh" ]] && source "${HOME}/.scm_breeze/scm_breeze.sh"
