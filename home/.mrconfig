@@ -6,6 +6,7 @@ update = $HOME/.homesick/repos/homeshick/bin/homeshick pull dotfiles
 checkout = git clone 'git@bitbucket.org:jakemcc/private-dotfiles.git' 'private-dotfiles'
 update = $HOME/.homesick/repos/homeshick/bin/homeshick pull private-dotfiles
 chain = true
+
 [.homesick/repos/emacs.d]
 checkout = git clone 'git@github.com:jakemcc/emacs.d.git' 'emacs.d'
 update = $HOME/.homesick/repos/homeshick/bin/homeshick pull emacs.d
@@ -17,3 +18,6 @@ update = $HOME/.homesick/repos/homeshick/bin/homeshick pull homeshick
 [.homesick/scm_breeze]
 checkout = git clone 'git@github.com:ndbroadbent/scm_breeze.git' 'scm_breeze'
 update = echo "Not pulling scm_breeze"
+
+[src/jakemcc/blog]
+checkout = git clone 'git@github.com:jakemcc/jakemccrary.com.git' 'blog'
