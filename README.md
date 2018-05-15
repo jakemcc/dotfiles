@@ -1,5 +1,6 @@
 # Bootstrap my dotfiles
 
-1. Install [myrepos](https://github.com/joeyh/myrepos)
-1. `mr bootstrap https://raw.githubusercontent.com/jakemcc/dotfiles/homesick/home/.mrconfig`
+1. Install [homebrew](https://brew.sh/)
+2. `brew install mr`
+1. `mr --trust-all bootstrap https://raw.githubusercontent.com/jakemcc/dotfiles/master/home/.mrconfig`
 1. `$HOME/.homesick/repos/homeshick/bin/homeshick link`
