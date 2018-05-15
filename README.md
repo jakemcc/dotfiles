@@ -1,7 +1,9 @@
 # Bootstrap my dotfiles (instructions for OSX)
 
 1. Install [homebrew](https://brew.sh/)
-2. `brew install mr`
+1. `brew install mr`
+1. Install KeePassX
+1. Setup ssh keys
 1. `mr --trust-all bootstrap https://raw.githubusercontent.com/jakemcc/dotfiles/master/home/.mrconfig`
 1. `$HOME/.homesick/repos/homeshick/bin/homeshick link`
 
@@ -12,6 +14,7 @@
 1. Download [Solarized colors](http://ethanschoonover.com/solarized)
 1. Setup iTerm2 to use Solarized + Inconsolata
 1. Install JDK
+1. [Docker for Mac](https://www.docker.com/docker-mac)
 
 ```
 brew install hh
