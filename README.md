@@ -15,6 +15,7 @@
 1. Setup iTerm2 to use Solarized + Inconsolata
 1. Install JDK
 1. [Docker for Mac](https://www.docker.com/docker-mac)
+1. Turn on FireVault encryption
 
 ```
 brew install hh
