@@ -1,6 +1,41 @@
-# Bootstrap my dotfiles
+# Bootstrap my dotfiles (instructions for OSX)
 
 1. Install [homebrew](https://brew.sh/)
 2. `brew install mr`
 1. `mr --trust-all bootstrap https://raw.githubusercontent.com/jakemcc/dotfiles/master/home/.mrconfig`
 1. `$HOME/.homesick/repos/homeshick/bin/homeshick link`
+
+## Steps for new OS X machine post above steps
+
+1. `open ~/.fonts/Inconsolata.otf`
+1. Download [iterm2](https://www.iterm2.com/)
+1. Download [Solarized colors](http://ethanschoonover.com/solarized)
+1. Setup iTerm2 to use Solarized + Inconsolata
+1. Install JDK
+
+```
+brew install hh
+brew cask install emacs
+brew install fasd
+brew install aspell
+brew install awscli
+brew install bash-completion
+brew install chruby
+brew install clojure
+brew install git-crypt
+brew install gnu-sed
+brew install multimarkdown
+brew install pgcli
+brew install phantomjs
+brew install reattach-to-user-namespace
+brew install ruby-install
+brew install selecta
+brew install shellcheck
+brew install siege
+brew install ssh-copy-id
+brew install terminal-notifier
+brew install the_silver_searcher
+brew install tmate
+brew install wget
+```
+
