@@ -15,11 +15,13 @@
 1. Setup iTerm2 to use Solarized + Inconsolata
 1. Install JDK
 1. [Docker for Mac](https://www.docker.com/docker-mac)
-1. Turn on FireVault encryption
+1. Turn on FileVault encryption
+1. Get secrets from backup
 
 ```
 brew install hh
 brew cask install emacs
+brew install gnupg2
 brew install fasd
 brew install aspell
 brew install awscli
@@ -42,4 +44,6 @@ brew install the_silver_searcher
 brew install tmate
 brew install wget
 ```
+
+
 
