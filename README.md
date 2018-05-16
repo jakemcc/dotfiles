@@ -14,7 +14,7 @@
 1. Download [Solarized colors](http://ethanschoonover.com/solarized)
 1. Setup iTerm2 to use Solarized + Inconsolata
 1. Install JDK
-1. [Docker for Mac](https://www.docker.com/docker-mac)
+1. [Docker for Mac](https://www.docker.com/docker-mac) and bump up memory settings
 1. Turn on FileVault encryption
 1. Get secrets from backup
 
