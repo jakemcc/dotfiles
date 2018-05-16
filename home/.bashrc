@@ -108,7 +108,7 @@ fi
 
 [[ -f "/usr/local/opt/chruby/share/chruby/chruby.sh" ]] && source /usr/local/opt/chruby/share/chruby/chruby.sh
 [[ -f "/usr/local/share/chruby/auto.sh" ]] && source /usr/local/share/chruby/auto.sh
-function_exists chruby && chruby ruby-2.3.0
+function_exists chruby && chruby ruby-2.3
 
 # Imperative that this environment variable always reflects the output
 # of the tty command.
