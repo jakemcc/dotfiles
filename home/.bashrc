@@ -126,8 +126,5 @@ else
   echo "Install homeshick https://github.com/andsens/homeshick"
 fi
 
-
-
-
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
