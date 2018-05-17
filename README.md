@@ -45,6 +45,8 @@ brew install tmate
 brew install wget
 ruby-install ruby-2.3 # or something like this
 homeshick cd dotfiles && git-crypt unlock
+brew install npm
+npm install semistandard
 ```
 
 

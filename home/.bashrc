@@ -117,7 +117,7 @@ export GPG_TTY
 
 export ANSIBLE_COW_SELECTION=small
 
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pipenv > /dev/null; then eval "$(pipenv --completion)"; fi
 
 if [ -d "$HOME/.homesick" ]; then
   source "$HOME/.homesick/repos/homeshick/homeshick.sh"
@@ -125,6 +125,9 @@ if [ -d "$HOME/.homesick" ]; then
 else
   echo "Install homeshick https://github.com/andsens/homeshick"
 fi
-source /usr/local/bin/virtualenvwrapper.sh
+
+
+
 
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
