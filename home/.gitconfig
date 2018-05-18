@@ -16,15 +16,15 @@
   status = auto
   branch = auto
 [core]
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
 [push]
   default = tracking
 [apply]
   whitespace = nowarn
 [init]
-	templatedir = ~/.git-templates
+  templatedir = ~/.git-templates
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
 [commit]
-	template = ~/.git-templates/commit_message.txt
+  template = ~/.git-templates/commit_message.txt
