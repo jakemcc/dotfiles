@@ -7,7 +7,7 @@ cache="$HOME/.connect-db/"
 mkdir -p ~/.connect-db
 
 host=$(grep -v '#' ~/.pgpass | sed '/^$/d' | cut -f 1 -d ':' | selecta)
-entry=$(grep "$host" ~/.pgpass)
+entry=$(grep "$host" ~/.pgpass | grep -v '#')
 port=$(echo "$entry" | cut -f 2 -d ':')
 user=$(echo "$entry" | cut -f 4 -d ':')
 
