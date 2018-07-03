@@ -117,8 +117,6 @@ export GPG_TTY
 
 export ANSIBLE_COW_SELECTION=small
 
-if which pipenv > /dev/null; then eval "$(pipenv --completion)"; fi
-
 if [ -d "$HOME/.homesick" ]; then
   source "$HOME/.homesick/repos/homeshick/homeshick.sh"
   source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
@@ -127,4 +125,15 @@ else
 fi
 
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
+
+export PYENV_ROOT="${HOME}/.pyenv"
+
+if [ -d "${PYENV_ROOT}" ]; then
+    export PATH="${PYENV_ROOT}/bin:${PATH}"
+    eval "$(pyenv init -)"
+fi
+
+if which pipenv > /dev/null; then eval "$(pipenv --completion)"; fi
+
 
