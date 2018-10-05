@@ -1,12 +1,12 @@
 
-export JAVA_HOME="$HOME/opt/java/jdk1.6.0_34"
-export JDK_HOME=$JAVA_HOME
-export IDEA_HOME="$HOME/opt/idea"
+# export JAVA_HOME="$HOME/opt/java/jdk1.6.0_34"
+# export JDK_HOME=$JAVA_HOME
+# export IDEA_HOME="$HOME/opt/idea"
 
-export EDITOR=ec
+# export EDITOR=ec
 
-alias code='cd $HOME/src'
+# alias code='cd $HOME/src'
 
-[[ -f /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh
+# [[ -f /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh
 
-my_pathmunge "/home/jmccrary/src/github/tern/bin"
+# my_pathmunge "/home/jmccrary/src/github/tern/bin"
