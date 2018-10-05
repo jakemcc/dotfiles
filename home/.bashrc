@@ -49,7 +49,7 @@ my_pathmunge "/usr/local/bin"
 my_pathmunge "$HOME/bin"
 my_pathmunge "$HOME/.bin"
 my_pathmunge "$HOME/opt/bin"
-
+my_pathmunge "$HOME/local/bin"
 
 # load OS specific stuff --------------------------------------
 
