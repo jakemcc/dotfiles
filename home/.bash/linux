@@ -1,4 +1,3 @@
-# [[ -f /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh
 
 # my_pathmunge "/home/jmccrary/src/github/tern/bin"
 
