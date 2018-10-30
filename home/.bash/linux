@@ -4,3 +4,5 @@
 
 alias pbcopy='xclip'
 alias pbpaste='xclip -o'
+
+alias lock='i3lock -c $(openssl rand -hex 3)'
