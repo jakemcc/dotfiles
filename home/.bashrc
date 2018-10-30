@@ -96,6 +96,7 @@ PROMPT_COMMAND="history -a ~/.bash_history.global; $PROMPT_COMMAND"
 # On C-r set HISTFILE and run hh
 bind -x '"\C-r": "HISTFILE=~/.bash_history.global hh"'
 
+
 # set PS1 with git completions --------------------------------
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_COMPLETION="${HOME}/.bash/bash_completion.d/git-completion.bash"
@@ -103,6 +104,9 @@ if [ -f "$GIT_COMPLETION" ]; then
   . "$GIT_COMPLETION"
   export PS1='\[\033[00m\]$? [last: ${timer_show}] \[\033[0;31m\]$(date +%T) \[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]$(__git_ps1 " (%s)")\[\033[00m\] $OUTPACE_ENV\n$ '
 fi
+
+# Makefile completions
+complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' Makefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
 
 [[ -f "$HOME/.scm_breeze/scm_breeze.sh" ]] && source "${HOME}/.scm_breeze/scm_breeze.sh"
 
