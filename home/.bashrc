@@ -6,12 +6,15 @@
 export EDITOR='emacs'
 
 # setup some completions
+# shellcheck source=/dev/null
 source "$HOME/.bash/lein_bash_completion.bash"
 
 # setup MYOS env variable, some colors defined
+# shellcheck source=/dev/null
 source "$HOME/.bash/environment"
 
 # get some useful functions
+# shellcheck source=/dev/null
 source "$HOME/.bash/functions"
 
 # check the window size after each command and, if necessary,
@@ -38,7 +41,8 @@ shopt -s histappend
 
 # aliases -----------------------------------------------------
 
-alias realias="$EDITOR $HOME/.aliases; source $HOME/.aliases"
+alias realias="\$EDITOR \$HOME/.aliases; source \$HOME/.aliases"
+# shellcheck source=/dev/null
 source ~/.aliases
 
 
@@ -53,8 +57,11 @@ my_pathmunge "$HOME/local/bin"
 
 # load OS specific stuff --------------------------------------
 
+# shellcheck source=/dev/null
 [[ -f "$HOME/.bash/$MACHINENAME" ]] && source "$HOME/.bash/$MACHINENAME"
+# shellcheck source=/dev/null
 [[ -f "$HOME/.bash/$MACHINENAME.private" ]] && source "$HOME/.bash/$MACHINENAME.private"
+# shellcheck source=/dev/null
 [[ -f "$HOME/.bash/$MYOS" ]] && source "$HOME/.bash/$MYOS"
 
 function timer_start {
@@ -65,11 +72,11 @@ function timer_start {
 # https://github.com/gfredericks/dotfiles/blob/d070e257a1a231196c04467ca46e742e32552868/base/.bashrc.base.symlink#L90-L103
 
 function timer_stop {
-  the_seconds=$(($SECONDS - $timer))
+  the_seconds=$((SECONDS - timer))
 
   # Hide results for <2sec to reduce noise
   # if [[ $the_seconds > 1 ]]; then
-      timer_show="`format-duration seconds $the_seconds`"
+      timer_show="$(format-duration seconds $the_seconds)"
   # else
   #     timer_show=""
   # fi
@@ -101,6 +108,7 @@ bind -x '"\C-r": "HISTFILE=~/.bash_history.global hh"'
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_COMPLETION="${HOME}/.bash/bash_completion.d/git-completion.bash"
 if [ -f "$GIT_COMPLETION" ]; then
+  # shellcheck source=/dev/null
   . "$GIT_COMPLETION"
   export PS1='\[\033[00m\]$? [last: ${timer_show}] \[\033[0;31m\]$(date +%T) \[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]$(__git_ps1 " (%s)")\[\033[00m\] $OUTPACE_ENV\n$ '
 fi
@@ -108,9 +116,12 @@ fi
 # Makefile completions
 complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' Makefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
 
+# shellcheck source=/dev/null
 [[ -f "$HOME/.scm_breeze/scm_breeze.sh" ]] && source "${HOME}/.scm_breeze/scm_breeze.sh"
 
+# shellcheck source=/dev/null
 [[ -f "/usr/local/opt/chruby/share/chruby/chruby.sh" ]] && source /usr/local/opt/chruby/share/chruby/chruby.sh
+# shellcheck source=/dev/null
 [[ -f "/usr/local/share/chruby/auto.sh" ]] && source /usr/local/share/chruby/auto.sh
 function_exists chruby && chruby ruby-2.3
 
@@ -122,13 +133,16 @@ export GPG_TTY
 export ANSIBLE_COW_SELECTION=small
 
 if [ -d "$HOME/.homesick" ]; then
+  # shellcheck source=/dev/null
   source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+  # shellcheck source=/dev/null
   source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 else
   echo "Install homeshick https://github.com/andsens/homeshick"
 fi
 
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+# shellcheck source=/dev/null
+[ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
 
 
 export PYENV_ROOT="${HOME}/.pyenv"
