@@ -3,6 +3,7 @@
 [alias]
   co = checkout
   ci = commit
+  latest = rev-parse --verify HEAD
 
 # Prints merged branches without the current working branch and mainline branches
   extraneous-branches = "!f() { git branch --merged | grep -v -e 'gh-pages' -e 'master' -e 'staging' -e 'production'; }; echo `f` | tr ' ' '\n'"
