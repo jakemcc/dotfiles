@@ -39,6 +39,18 @@ export HISTFILESIZE=10000
 export HISTIGNORE="&:[ ]*:exit"
 shopt -s histappend
 
+alias hh=hstr                    # hh to be alias for hstr
+export HSTR_CONFIG=hicolor       # get more colors
+shopt -s histappend              # append new history items to .bash_history
+export HISTCONTROL=ignorespace   # leading space hides commands from history
+export HISTFILESIZE=10000        # increase history file size (default is 500)
+export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
+
+# if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
+if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a HISTFILE=~/.bash_history.global hstr -- \C-j"'; fi
+# if this is interactive shell, then bind 'kill last command' to Ctrl-x k
+if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a HISTFILE=~/.bash_history.global hstr -k \C-j"'; fi
+
 # aliases -----------------------------------------------------
 
 alias realias="\$EDITOR \$HOME/.aliases; source \$HOME/.aliases"
@@ -99,9 +111,6 @@ fi
 # History stuff from http://unix.stackexchange.com/questions/200225/search-history-from-multiple-bash-session-only-when-ctrl-r-is-used-not-when-a
 # Whenever a command is executed, write it to a global history
 PROMPT_COMMAND="history -a ~/.bash_history.global; $PROMPT_COMMAND"
-
-# On C-r set HISTFILE and run hh
-bind -x '"\C-r": "HISTFILE=~/.bash_history.global hh"'
 
 
 # set PS1 with git completions --------------------------------
