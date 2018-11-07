@@ -1,5 +1,6 @@
 
 # my_pathmunge "/home/jmccrary/src/github/tern/bin"
+my_pathmunge "/home/jakemccrary/.venv-conan/bin"
 
 alias pbcopy='xclip'
 alias pbpaste='xclip -o'
