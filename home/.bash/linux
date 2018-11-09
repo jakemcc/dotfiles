@@ -1,8 +1,9 @@
 
 # my_pathmunge "/home/jmccrary/src/github/tern/bin"
 my_pathmunge "/home/jakemccrary/.venv-conan/bin"
+my_pathmunge "/home/jakemccrary/src/markets/dev-scripts/bin"
 
-alias pbcopy='xclip'
-alias pbpaste='xclip -o'
+alias pbcopy='xclip -selection c'
+alias pbpaste='xclip -selection c -o'
 
 alias lock='i3lock -c $(openssl rand -hex 3)'
