@@ -317,16 +317,47 @@
 
 [test-refresh-fail]
     appname="test-refresh"
-    summary="*Failed*"
+    summary="Failed*"
     urgency=critical
 
+[test-refresh-passed]
+    appname="test-refresh"
+    summary="Passed*"
+    urgency=normal
+
 # Work around for https://github.com/dunst-project/dunst/issues/484
+# This is still failing...
+
 [defaults_critical]
     msg_urgancy = critical
     background = "#900000"
     foreground = "#ffffff"
-    frame_color = "#ff0000"
+    # frame_color = "#ff0000"
     timeout = 5
+    # Icon for notifications with critical urgency, uncomment to enable
+    #icon = /path/to/icon
+
+[defaults_low]
+    msg_urgancy = low
+    background = "#222222"
+    foreground = "#888888"
+    timeout = 5
+    # Icon for notifications with low urgency, uncomment to enable
+    #icon = /path/to/icon
+
+[defaults_normal]
+    msg_urgancy = normal
+    background = "#285577"
+    foreground = "#ffffff"
+    timeout = 5
+    # Icon for notifications with normal urgency, uncomment to enable
+    #icon = /path/to/icon
+
 
 
 # vim: ft=cfg
+
+
+# Local Variables:
+# mode: conf
+# End:
