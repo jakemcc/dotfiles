@@ -12,3 +12,4 @@ if [[ "$MYOS" != "osx" ]]; then
   alias ls='ls --color=auto'
 fi
 
+alias svn='sl'
