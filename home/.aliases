@@ -2,6 +2,7 @@
 # general
 alias l='ls'
 alias la="ls -lach"
+alias ll="ls -ltr"
 alias lsd="ls | grep ^d"
 alias mkdir='mkdir -p'
 alias grep='grep --color=auto'
