@@ -1,6 +1,6 @@
 
 # my_pathmunge "/home/jmccrary/src/github/tern/bin"
-my_pathmunge "/home/jakemccrary/.venv-conan/bin"
+# my_pathmunge "/home/jakemccrary/.venv-conan/bin"
 my_pathmunge "/home/jakemccrary/src/markets/dev-scripts/bin"
 
 alias pbcopy='xclip -selection c'
@@ -14,3 +14,5 @@ if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
 fi
 source "$fasd_cache"
 unset fasd_cache
+
+
