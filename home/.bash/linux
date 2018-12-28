@@ -1,9 +1,18 @@
 
 # my_pathmunge "/home/jmccrary/src/github/tern/bin"
-my_pathmunge "/home/jakemccrary/.venv-conan/bin"
+# my_pathmunge "/home/jakemccrary/.venv-conan/bin"
 my_pathmunge "/home/jakemccrary/src/markets/dev-scripts/bin"
 
 alias pbcopy='xclip -selection c'
 alias pbpaste='xclip -selection c -o'
 
 alias lock='i3lock -c $(openssl rand -hex 3)'
+
+fasd_cache="$HOME/.fasd-init-bash"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+  fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
+
+

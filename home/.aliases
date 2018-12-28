@@ -2,6 +2,7 @@
 # general
 alias l='ls'
 alias la="ls -lach"
+alias ll="ls -ltr"
 alias lsd="ls | grep ^d"
 alias mkdir='mkdir -p'
 alias grep='grep --color=auto'
@@ -12,3 +13,4 @@ if [[ "$MYOS" != "osx" ]]; then
   alias ls='ls --color=auto'
 fi
 
+alias svn='sl'
