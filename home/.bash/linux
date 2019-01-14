@@ -2,6 +2,8 @@
 # my_pathmunge "/home/jmccrary/src/github/tern/bin"
 # my_pathmunge "/home/jakemccrary/.venv-conan/bin"
 my_pathmunge "/home/jakemccrary/src/markets/dev-scripts/bin"
+my_pathmunge "/home/jakemccrary/cb/bin/"
+source "/home/jakemccrary/cb/bin/autocomplete/tugboat"
 
 alias pbcopy='xclip -selection c'
 alias pbpaste='xclip -selection c -o'
@@ -15,4 +17,4 @@ fi
 source "$fasd_cache"
 unset fasd_cache
 
-
+export JAVA_HOME=/opt/jdk1.8.0_181
