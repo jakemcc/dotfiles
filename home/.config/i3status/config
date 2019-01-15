@@ -18,8 +18,8 @@ general {
 }
 
 order += "load"
-order += "tztime local"
 order += "tztime utc"
+order += "tztime local"
 
 load {
         format = "<span> %5min Load </span>"
@@ -68,13 +68,13 @@ battery 1 {
 }
 
 tztime local {
-		format = "<span> %time </span>"
-		format_time = "%a %-d %b %H:%M"
+		format = "<span>Chicago: %time </span>"
+		format_time = "%a %-d %b %H:%M:%S"
 }
 
 tztime utc {
-		format = "<span> %time </span>"
-		format_time = "UTC: %a %-d %b %H:%M"
+		format = "<span>UTC: %time </span>"
+		format_time = "%a %-d %b %H:%M"
     timezone = "Etc/Utc"
 }
 
