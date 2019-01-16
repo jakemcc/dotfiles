@@ -19,8 +19,8 @@ if [ ! -z "$TMUX" ]; then
         | xargs -n1 -I{} tmux display-message -c {} "$message"
 elif command -v noti >/dev/null 2>&1; then
     noti -t "$title" -m "$message"
-elif command -v dunst >/dev/null 2>&1; then
-    echo 'Fill in dunst'
+elif command -v notify-send >/dev/null 2>&1; then
+    notify-send "--app-name=$title" "$message"
 fi
 
 
