@@ -1,0 +1,24 @@
+#!/bin/bash
+
+USAGE="Usage: notify <title> <message>
+
+example: notify 'test-refresh' 'Tests passed!'"
+
+
+if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "$USAGE"
+    exit 1
+fi
+
+title="$1"
+message="$2"
+
+if [ ! -z "$TMUX" ]; then
+    tmux display-message "$message"
+elif command -v noti >/dev/null 2>&1; then
+    noti -t "$title" -m "$message"
+elif command -v dunst >/dev/null 2>&1; then
+    echo 'Fill in dunst'
+fi
+
+
