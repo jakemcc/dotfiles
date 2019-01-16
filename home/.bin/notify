@@ -14,7 +14,10 @@ title="$1"
 message="$2"
 
 if [ ! -z "$TMUX" ]; then
-    tmux display-message "$message"
+    tmux list-clients \
+        | cut -f 1 -d : \
+        | xargs -n1 -I{} tmux display-message -c {} "$message"
+    # tmux display-message "$message"
 elif command -v noti >/dev/null 2>&1; then
     noti -t "$title" -m "$message"
 elif command -v dunst >/dev/null 2>&1; then
