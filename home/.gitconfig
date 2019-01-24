@@ -1,5 +1,6 @@
 [user]
   name = Jake McCrary
+	email = jake@jakemccrary.com
 [alias]
   co = checkout
   ci = commit
