@@ -97,6 +97,7 @@ function timer_stop {
 }
 
 
+# Someday maybe move to:  https://github.com/rcaloras/bash-preexec
 trap 'timer_start' DEBUG
 if [ "$PROMPT_COMMAND" == "" ]; then
   PROMPT_COMMAND="timer_stop"
