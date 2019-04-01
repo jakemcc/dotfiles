@@ -1,4 +1,0 @@
-# machine at CB
-
-my_pathmunge "/opt/cmake-3.12.2-Linux-x86_64/bin"
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/

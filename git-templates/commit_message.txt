@@ -1,5 +1,7 @@
 # If applied, this commit will...
 
+# Co-authored-by: Ben Rady <ben.rady@coinbase.com>
+
 # Explain why this change is being made
 
 # Provide links to any relevant tickets, articles or other resources
