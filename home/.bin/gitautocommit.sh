@@ -29,7 +29,7 @@ else
     INW="$GW_INW_BIN";
 fi
 
-for cmd in "git" "$INW"; do
+for cmd in "git" "$INW" "timeout"; do
     is_command "$cmd" || { stderr "Error: Required command '$cmd' not found"; exit 1; }
 done
 
@@ -42,7 +42,9 @@ fi
 
 cd "$TARGETDIR"
 
-eval "$INCOMMAND" | while read -r _; do
+while true; do
+    eval "timeout 600 $INCOMMAND" || true
+    git pull
     sleep 5
     STATUS=$(git status -s)
     if [ -n "$STATUS" ]; then
