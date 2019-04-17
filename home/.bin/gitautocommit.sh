@@ -34,7 +34,7 @@ for cmd in "git" "$INW" "timeout"; do
 done
 
 if [ "$(uname)" != "Darwin" ]; then
-  INCOMMAND="\"$INW\" -qmr -e \"$EVENTS\" --exclude \"\.git\" \"$TARGETDIR\""
+  INCOMMAND="\"$INW\" -qr -e \"$EVENTS\" --exclude \"\.git\" \"$TARGETDIR\""
 else
   # still need to fix EVENTS since it wants them listed one-by-one
   INCOMMAND="\"$INW\" --recursive \"$EVENTS\" --exclude \"\.git\" \"$TARGETDIR\""
