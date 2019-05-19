@@ -157,7 +157,7 @@ fi
 [[ -f "/usr/local/opt/chruby/share/chruby/chruby.sh" ]] && source /usr/local/opt/chruby/share/chruby/chruby.sh
 # shellcheck source=/dev/null
 [[ -f "/usr/local/share/chruby/auto.sh" ]] && source /usr/local/share/chruby/auto.sh
-function_exists chruby && chruby ruby-2.3
+function_exists chruby && chruby ruby-2.6.3
 
 # Imperative that this environment variable always reflects the output
 # of the tty command.
