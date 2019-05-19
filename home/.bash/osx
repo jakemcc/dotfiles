@@ -5,9 +5,3 @@
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 alias finished='say -v Vicki finished'
-
-my_pathmunge "$HOME/src/keep-around/cljs-environments/depot_tools"
-
-# for development on ClojureScript
-export V8_HOME="$HOME/src/keep-around/cljs-environments/v8/out/native"
-export NASHORN_HOME="$JAVA_HOME/bin/"
