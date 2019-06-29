@@ -1,7 +1,6 @@
 # If applied, this commit will...
 
-# Co-authored-by: Tim Hawbaker <tim@coinbase.com>
-# Co-authored-by: Ben Rady <ben.rady@coinbase.com>
+# Co-authored-by: Name Here <name@email.com>
 
 # Explain why this change is being made
 
