@@ -1,3 +1,4 @@
+alias bazel=bazelisk
 
 # general
 alias l='ls'
