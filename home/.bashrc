@@ -178,6 +178,8 @@ fi
 # shellcheck source=/dev/null
 [ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
 
+# shellcheck source=/dev/null
+[ -f "$HOME/.bash/bash_completion.d/bazel-complete.bash" ] && source "$HOME/.bash/bash_completion.d/bazel-complete.bash"
 
 export PYENV_ROOT="${HOME}/.pyenv"
 
