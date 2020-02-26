@@ -27,6 +27,8 @@ else # if Mac, use fswatch
 fi
 
 for cmd in "git" "$INW" "timeout"; do
+    # in OSX: `timeout` => brew install coreutils
+    # in OSX: `fswatch` => brew install fswatch
     is_command "$cmd" || { stderr "Error: Required command '$cmd' not found"; exit 1; }
 done
 
