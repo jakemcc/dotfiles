@@ -76,38 +76,27 @@ my_pathmunge "$HOME/local/bin"
 # shellcheck source=/dev/null
 [[ -f "$HOME/.bash/$MYOS" ]] && source "$HOME/.bash/$MYOS"
 
-function timer_start {
-  timer=${timer:-$SECONDS}
+
+# Using https://github.com/rcaloras/bash-preexec
+function preexec {
+  echo "Before exec"
+  if [ "UNSET" == "${timer}" ]; then
+    timer=$SECONDS
+  else 
+    timer=${timer:-$SECONDS}
+  fi 
 }
 
-# Adapted from
-# https://github.com/gfredericks/dotfiles/blob/d070e257a1a231196c04467ca46e742e32552868/base/.bashrc.base.symlink#L90-L103
-
-function timer_stop {
-  the_seconds=$((SECONDS - timer))
-
-  # Hide results for <2sec to reduce noise
-  # if [[ $the_seconds > 1 ]]; then
-      timer_show="$(format-duration seconds $the_seconds)"
-  # else
-  #     timer_show=""
-  # fi
-
-  unset timer
-}
-
-
-# Someday maybe move to:  https://github.com/rcaloras/bash-preexec
-trap 'timer_start' DEBUG
-if [ "$PROMPT_COMMAND" == "" ]; then
-  PROMPT_COMMAND="timer_stop"
-else
-  if [[ "$PROMPT_COMMAND" =~ \;$ ]]; then
-    PROMPT_COMMAND="$PROMPT_COMMAND timer_stop"
-  else
-    PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
+function precmd {
+  echo "Before prompt"
+  if [ "UNSET" == "${timer}" ]; then
+     timer_show="0s"
+  else 
+    the_seconds=$((SECONDS - timer))
+    timer_show="$(format-duration seconds $the_seconds)"
   fi
-fi
+  timer="UNSET"
+}
 
 # History stuff from http://unix.stackexchange.com/questions/200225/search-history-from-multiple-bash-session-only-when-ctrl-r-is-used-not-when-a
 # Whenever a command is executed, write it to a global history
@@ -190,3 +179,6 @@ fi
 
 if which pipenv > /dev/null; then eval "$(pipenv --completion)"; fi
 
+# from https://github.com/rcaloras/bash-preexec
+# shellcheck source=/dev/null
+[ -f "$HOME/.bash-preexec.sh" ] && source "$HOME/.bash-preexec.sh"
