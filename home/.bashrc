@@ -115,29 +115,29 @@ fi
 # Makefile completions
 complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' Makefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
 
-# SSH Agent stuff
-SSH_ENV="$HOME/.ssh/environment"
-function start_agent {
-  echo "Initialising new SSH agent..."
-  /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-  echo succeeded
-  chmod 600 "${SSH_ENV}"
-  # shellcheck source=/dev/null
-  . "${SSH_ENV}" > /dev/null
-  # /usr/bin/ssh-add;
-}
+# # SSH Agent stuff
+# SSH_ENV="$HOME/.ssh/environment"
+# function start_agent {
+#   echo "Initialising new SSH agent..."
+#   /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+#   echo succeeded
+#   chmod 600 "${SSH_ENV}"
+#   # shellcheck source=/dev/null
+#   . "${SSH_ENV}" > /dev/null
+#   # /usr/bin/ssh-a  dd;
+# }
 
-# Source SSH settings, if applicable
-if [ -f "${SSH_ENV}" ]; then
-  # shellcheck source=/dev/null
-  . "${SSH_ENV}" > /dev/null
-  #ps ${SSH_AGENT_PID} doesn't work under cywgin
-  ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-    start_agent;
-  }
-else
-  start_agent;
-fi
+# # Source SSH settings, if applicable
+# if [ -f "${SSH_ENV}" ]; then
+#   # shellcheck source=/dev/null
+#   . "${SSH_ENV}" > /dev/null
+#   #ps ${SSH_AGENT_PID} doesn't work under cywgin
+#   ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+#     start_agent;
+#   }
+# else
+#   start_agent;
+# fi
 
 # shellcheck source=/dev/null
 [[ -f "$HOME/.scm_breeze/scm_breeze.sh" ]] && source "${HOME}/.scm_breeze/scm_breeze.sh"
