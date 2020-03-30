@@ -79,7 +79,6 @@ my_pathmunge "$HOME/local/bin"
 
 # Using https://github.com/rcaloras/bash-preexec
 function preexec {
-  echo "Before exec"
   if [ "UNSET" == "${timer}" ]; then
     timer=$SECONDS
   else 
@@ -88,7 +87,6 @@ function preexec {
 }
 
 function precmd {
-  echo "Before prompt"
   if [ "UNSET" == "${timer}" ]; then
      timer_show="0s"
   else 
