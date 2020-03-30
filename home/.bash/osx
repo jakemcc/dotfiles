@@ -4,7 +4,12 @@
 
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
-alias finished='say -v Vicki finished'
+function finished {
+    last=$?
+    say "finished ${last}"
+    return ${last}
+}
+
+# alias f='(last=$?; say "finished ${last}"; exit ${last})'
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-

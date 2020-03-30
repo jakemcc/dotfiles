@@ -1,3 +1,5 @@
 startup --batch_cpu_scheduling --io_nice_level 7
-build --jobs 5 --ram_utilization_factor 50
+build --jobs 5 --ram_utilization_factor 60
 test --jobs 5
+test --test_env=PATH
+test --test_env=MUTE_TEST_LOGGING=1
