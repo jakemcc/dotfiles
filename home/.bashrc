@@ -92,7 +92,7 @@ _maybe_speak() {
     if (( elapsed_seconds > 30 )); then
         local c
         c=$(echo "${_last_command}" | cut -d' ' -f1)
-        say "finished ${c}" &
+        { say "finished ${c}" & disown; }
     fi
 }
 
