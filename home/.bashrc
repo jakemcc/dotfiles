@@ -111,10 +111,10 @@ function precmd {
 # Whenever a command is executed, write it to a global history
 PROMPT_COMMAND="history -a ~/.bash_history.global; $PROMPT_COMMAND"
 
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # set PS1 with git completions --------------------------------
 GIT_PS1_SHOWDIRTYSTATE=true
-GIT_COMPLETION="${HOME}/.bash/bash_completion.d/git-completion.bash"
 if [ -f "$GIT_COMPLETION" ]; then
   # shellcheck source=/dev/null
   . "$GIT_COMPLETION"
