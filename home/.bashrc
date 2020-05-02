@@ -195,4 +195,4 @@ if which pipenv > /dev/null; then eval "$(pipenv --completion)"; fi
 
 # from https://github.com/rcaloras/bash-preexec
 # shellcheck source=/dev/null
-[ -f "$HOME/.bash-preexec.sh" ] && source "$HOME/.bash-preexec.sh"
+[[ -f "$HOME/.bash-preexec.sh" ]] && source "$HOME/.bash-preexec.sh"
