@@ -78,7 +78,7 @@ my_pathmunge "$HOME/local/bin"
 
 
 # Using https://github.com/rcaloras/bash-preexec
-function preexec {
+preexec() {
   _last_command=$1
   if [ "UNSET" == "${timer}" ]; then
     timer=$SECONDS
@@ -96,7 +96,7 @@ _maybe_speak() {
     fi
 }
 
-function precmd {
+precmd() {
   if [ "UNSET" == "${timer}" ]; then
      timer_show="0s"
   else 
