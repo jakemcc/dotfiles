@@ -80,10 +80,10 @@ my_pathmunge "$HOME/local/bin"
 # Using https://github.com/rcaloras/bash-preexec
 preexec() {
   _last_command=$1
-  if [ "UNSET" == "${timer}" ]; then
-    timer=$SECONDS
+  if [ "UNSET" == "${_timer}" ]; then
+    _timer=$SECONDS
   else 
-    timer=${timer:-$SECONDS}
+    _timer=${_timer:-$SECONDS}
   fi 
 }
 
@@ -92,19 +92,19 @@ _maybe_speak() {
     if (( elapsed_seconds > 30 )); then
         local c
         c=$(echo "${_last_command}" | cut -d' ' -f1)
-        { say "finished ${c}" & disown; }
+        ( say "finished ${c}" & )
     fi
 }
 
 precmd() {
-  if [ "UNSET" == "${timer}" ]; then
+  if [ "UNSET" == "${_timer}" ]; then
      timer_show="0s"
   else 
-    elapsed_seconds=$((SECONDS - timer))
+    elapsed_seconds=$((SECONDS - _timer))
     _maybe_speak ${elapsed_seconds}
     timer_show="$(format-duration seconds $elapsed_seconds)"
   fi
-  timer="UNSET"
+  _timer="UNSET"
 }
 
 # History stuff from http://unix.stackexchange.com/questions/200225/search-history-from-multiple-bash-session-only-when-ctrl-r-is-used-not-when-a
