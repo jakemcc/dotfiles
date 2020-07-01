@@ -29,3 +29,5 @@
   smudge = git-media-smudge %f
 [commit]
   template = ~/.git-templates/commit_message.txt
+[pull]
+	rebase = false
