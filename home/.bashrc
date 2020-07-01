@@ -78,12 +78,12 @@ my_pathmunge "$HOME/local/bin"
 
 
 # Using https://github.com/rcaloras/bash-preexec
-function preexec {
+preexec() {
   _last_command=$1
-  if [ "UNSET" == "${timer}" ]; then
-    timer=$SECONDS
+  if [ "UNSET" == "${_timer}" ]; then
+    _timer=$SECONDS
   else 
-    timer=${timer:-$SECONDS}
+    _timer=${_timer:-$SECONDS}
   fi 
 }
 
@@ -92,19 +92,19 @@ _maybe_speak() {
     if (( elapsed_seconds > 30 )); then
         local c
         c=$(echo "${_last_command}" | cut -d' ' -f1)
-        { say "finished ${c}" & disown; }
+        ( say "finished ${c}" & )
     fi
 }
 
-function precmd {
-  if [ "UNSET" == "${timer}" ]; then
+precmd() {
+  if [ "UNSET" == "${_timer}" ]; then
      timer_show="0s"
   else 
-    elapsed_seconds=$((SECONDS - timer))
+    elapsed_seconds=$((SECONDS - _timer))
     _maybe_speak ${elapsed_seconds}
     timer_show="$(format-duration seconds $elapsed_seconds)"
   fi
-  timer="UNSET"
+  _timer="UNSET"
 }
 
 # History stuff from http://unix.stackexchange.com/questions/200225/search-history-from-multiple-bash-session-only-when-ctrl-r-is-used-not-when-a
@@ -112,15 +112,19 @@ function precmd {
 PROMPT_COMMAND="history -a ~/.bash_history.global; $PROMPT_COMMAND"
 
 
+
 # set PS1 with git completions --------------------------------
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_COMPLETION="${HOME}/.bash/bash_completion.d/git-completion.bash"
-if [ -f "$GIT_COMPLETION" ]; then
+if [ -e "$GIT_COMPLETION" ]; then
   # shellcheck source=/dev/null
   . "$GIT_COMPLETION"
-  export PS1='\[\033[00m\]$? [last: ${timer_show}] \[\033[0;31m\]$(date +%T) \[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]$(__git_ps1 " (%s)")\[\033[00m\] $OUTPACE_ENV\n$ '
+  export PS1='\[\033[00m\]$? [last: ${timer_show}] \[\033[0;31m\]$(date +%T) \[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]$(__git_ps1 " (%s)")\[\033[00m\]\n$ '
+else
+    echo "${GIT_COMPLETION} does not exist?"
 fi
 
+export PS1='\[\033[00m\]$? [last: ${timer_show}] \[\033[0;31m\]$(date +%T) \[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]$(__git_ps1 " (%s)")\[\033[00m\]\n$ '
 # Makefile completions
 complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' Makefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
 
@@ -193,4 +197,4 @@ if which pipenv > /dev/null; then eval "$(pipenv --completion)"; fi
 
 # from https://github.com/rcaloras/bash-preexec
 # shellcheck source=/dev/null
-[ -f "$HOME/.bash-preexec.sh" ] && source "$HOME/.bash-preexec.sh"
+[[ -f "$HOME/.bash-preexec.sh" ]] && source "$HOME/.bash-preexec.sh"
