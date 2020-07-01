@@ -179,6 +179,9 @@ fi
 # shellcheck source=/dev/null
 [ -f "$HOME/.bash/bash_completion.d/bazel-complete.bash" ] && source "$HOME/.bash/bash_completion.d/bazel-complete.bash"
 
+# shellcheck source=/dev/null
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && source "/usr/local/etc/profile.d/bash_completion.sh"
+
 export PYENV_ROOT="${HOME}/.pyenv"
 
 if [ -d "${PYENV_ROOT}" ]; then
