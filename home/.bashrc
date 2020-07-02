@@ -116,15 +116,19 @@ PROMPT_COMMAND="history -a ~/.bash_history.global; $PROMPT_COMMAND"
 # set PS1 with git completions --------------------------------
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_COMPLETION="${HOME}/.bash/bash_completion.d/git-completion.bash"
+GIT_PROMPT="${HOME}/.bash/git-prompt.sh"
 if [ -e "$GIT_COMPLETION" ]; then
   # shellcheck source=/dev/null
   . "$GIT_COMPLETION"
-  export PS1='\[\033[00m\]$? [last: ${timer_show}] \[\033[0;31m\]$(date +%T) \[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]$(__git_ps1 " (%s)")\[\033[00m\]\n$ '
+  if [ -e "$GIT_PROMPT" ]; then
+      # shellcheck source=/dev/null
+      . "$GIT_PROMPT"
+      export PS1='\[\033[00m\]$? [last: ${timer_show}] \[\033[0;31m\]$(date +%T) \[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]$(__git_ps1 " (%s)")\[\033[00m\]\n$ '
+  fi
 else
     echo "${GIT_COMPLETION} does not exist?"
 fi
 
-export PS1='\[\033[00m\]$? [last: ${timer_show}] \[\033[0;31m\]$(date +%T) \[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]$(__git_ps1 " (%s)")\[\033[00m\]\n$ '
 # Makefile completions
 complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' Makefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
 
