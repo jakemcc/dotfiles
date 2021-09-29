@@ -1,11 +1,30 @@
+# -*- mode: Shell-script; -*-
+
 export GEMINI_ENV=dev
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export JAVA_HOME="/usr/local/opt/openjdk@11"
+my_pathmunge "/usr/local/opt/openjdk@11/bin"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export EDITOR="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
+if [ -f "/Applications/Emacs.app/Contents/MacOS/bin/emacs" ]; then
+  my_pathmunge "/Applications/Emacs.app/Contents/MacOS/bin"
+  export EDITOR="emacs -nw -q"
+fi
+
+if [ -f "/Applications/Emacs.app/Contents/MacOS/bin/emacsclient" ]; then
+  alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+fi
+
 
 source "$HOME/src/work/env-aliases/aliases"
 
 export CRYPTO_APPLICATION_SECRET="aaaaaaaaaaaaaaaa"
+
+export path_to_gemini=/Users/jake.mccrary/src/work/gemini
+
+my_pathmunge "${path_to_gemini/python_automation}"
+my_pathmunge "${path_to_gemini/python_automation/utils}"
+export PYTHONPATH="$PYTHONPATH:${path_to_gemini}/python_automation/utils:${path_to_gemini}/python_automation"
+
+my_pathmunge "$HOME/go/bin"
