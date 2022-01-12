@@ -14,10 +14,6 @@ fi
 # scm
 export EDITOR='emacs'
 
-# setup some completions
-# shellcheck source=/dev/null
-source "$HOME/.bash/lein_bash_completion.bash"
-
 # setup MYOS env variable, some colors defined
 # shellcheck source=/dev/null
 source "$HOME/.bash/environment"
@@ -194,10 +190,7 @@ fi
 [ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
 
 # shellcheck source=/dev/null
-[ -f "$HOME/.bash/bash_completion.d/bazel-complete.bash" ] && source "$HOME/.bash/bash_completion.d/bazel-complete.bash"
-
-# shellcheck source=/dev/null
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && source "/usr/local/etc/profile.d/bash_completion.sh"
+for f in ~/.bash/bash_completion.d/*; do source "${f}"; done
 
 export PYENV_ROOT="${HOME}/.pyenv"
 
@@ -211,3 +204,4 @@ if which pipenv > /dev/null; then eval "$(pipenv --completion)"; fi
 # from https://github.com/rcaloras/bash-preexec
 # shellcheck source=/dev/null
 [[ -f "$HOME/.bash-preexec.sh" ]] && source "$HOME/.bash-preexec.sh"
+

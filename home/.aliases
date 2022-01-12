@@ -20,3 +20,4 @@ alias rg='rg --hidden'
 alias git-parent-branch='git show-branch | sed "s/].*//" | grep "\*" | grep -v "$(git rev-parse --abbrev-ref HEAD)" | head -n1 | sed "s/^.*\[//"'
 
 alias fiveminutes='sleep 300'
+alias yarn='bazel run @nodejs//:yarn'
