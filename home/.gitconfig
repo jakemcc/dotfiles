@@ -24,6 +24,7 @@
   whitespace = nowarn
 [init]
   templatedir = ~/.git-templates
+	defaultBranch = main
 [filter "media"]
   clean = git-media-clean %f
   smudge = git-media-smudge %f
