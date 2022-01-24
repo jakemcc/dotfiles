@@ -26,14 +26,11 @@
         files (mapv (fn [file] (str root "/" file))
                     (get data :files))]
     (when (seq files)
-      (println "Generating command for" (count files) "on host" host)
-      #_["ssh" host (str "\"rm " (string/join " " files) "\"")]
       [(str "rm " (string/join " " files))])))
 
 (defn delete-files! [data]
-  (if-let [cmd (not-empty (delete-command data))]
-    (println (string/join " " cmd))
-    (println "Nothing to delete!")))
+  (when-let [cmd (not-empty (delete-command data))]
+    (println (string/join " " cmd))))
 
 (defn parse-mutagen
   ([lines] (parse-mutagen lines {}))
@@ -69,13 +66,20 @@
 
 (defn work [sync-name]
   (let [data (mutagen-data sync-name)]
-    (delete-files! (:beta data))
-    ""))
+    (delete-files! (:beta data))))
 
-(when-let [sync-name (first *command-line-args*)]
-  (work sync-name))
+(defn help []
+  (binding [*out* *err*]
+    (println "Need to supply a sync identifier as first argument, found from `mutagen sync list`")
+    (let [potential-identifiers (->> (run! ["mutagen" "sync" "list"])
+                                     string/split-lines
+                                     (mapv string/trim)
+                                     (filter (fn [line] (string/starts-with? line "Name:")))
+                                     (map (fn [line] (string/replace line "Name: " ""))))]
+      (println "Human readable identifiers: " (string/join ", " potential-identifiers))))
+  (System/exit 1))
 
-(comment
-  (delete-command (mutagen-data "awsdevg2"))
+(if-let [sync-name (first *command-line-args*)]
+  (work sync-name)
+  (help))
 
-  )
