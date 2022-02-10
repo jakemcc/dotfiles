@@ -47,4 +47,8 @@ while true; do
         git commit -m "autocommit"
         git push origin
     fi
+
+    if [ $((1 + RANDOM % 100)) -eq 1 ]; then
+        keybase git gc org-life
+    fi 
 done
