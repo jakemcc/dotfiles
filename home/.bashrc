@@ -12,7 +12,7 @@ if [ -f "/Applications/Emacs.app/Contents/MacOS/bin/emacsclient" ]; then
 fi
 
 # scm
-export EDITOR='emacs'
+export EDITOR='emacs -nw'
 
 # setup MYOS env variable, some colors defined
 # shellcheck source=/dev/null
@@ -205,3 +205,9 @@ if which pipenv > /dev/null; then eval "$(pipenv --completion)"; fi
 # shellcheck source=/dev/null
 [[ -f "$HOME/.bash-preexec.sh" ]] && source "$HOME/.bash-preexec.sh"
 
+if which jenv > /dev/null ; then
+    export PATH="$HOME/.jenv/bin:$PATH"
+    eval "$(jenv init -)"
+fi
+
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
