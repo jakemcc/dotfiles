@@ -94,11 +94,11 @@ preexec() {
 
 _maybe_speak() {
     local elapsed_seconds=$1
-    if (( elapsed_seconds > 30 )); then
-        local c
-        c=$(echo "${_last_command}" | cut -d' ' -f1)
-        ( say "finished ${c}" & )
-    fi
+    # if (( elapsed_seconds > 30 )); then
+    #     local c
+    #     c=$(echo "${_last_command}" | cut -d' ' -f1)
+    #     ( say "finished ${c}" & )
+    # fi
 }
 
 precmd() {
