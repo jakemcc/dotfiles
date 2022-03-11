@@ -110,13 +110,12 @@ precmd() {
     timer_show="$(format-duration seconds $elapsed_seconds)"
   fi
   _timer="UNSET"
+
+  # History stuff from http://unix.stackexchange.com/questions/200225/search-history-from-multiple-bash-session-only-when-ctrl-r-is-used-not-when-a
+  # Whenever a command is executed, write it to a global history
+  history -a ~/.bash_history.global
+  echo -ne "\033]0;${PWD##*/}\007"
 }
-
-# History stuff from http://unix.stackexchange.com/questions/200225/search-history-from-multiple-bash-session-only-when-ctrl-r-is-used-not-when-a
-# Whenever a command is executed, write it to a global history
-PROMPT_COMMAND="history -a ~/.bash_history.global; $PROMPT_COMMAND"
-
-
 
 # set PS1 with git completions --------------------------------
 GIT_PS1_SHOWDIRTYSTATE=true
