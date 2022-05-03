@@ -121,6 +121,7 @@ precmd() {
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_COMPLETION="${HOME}/.bash/bash_completion.d/git-completion.bash"
 GIT_PROMPT="${HOME}/.bash/git-prompt.sh"
+PROMPT_DIRTRIM=2
 if [ -e "$GIT_COMPLETION" ]; then
   # shellcheck source=/dev/null
   . "$GIT_COMPLETION"
