@@ -59,6 +59,7 @@ git_fetch_all_alias="bfa"
 git_fetch_and_rebase_alias="bfr"
 git_pull_alias="bpl"
 git_push_alias="bps"
+alias bpsn='bps --no-verify'
 git_push_force_alias="bpsf"
 git_pull_then_push_alias="bpls"
 git_status_original_alias="bst"
