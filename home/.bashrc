@@ -192,18 +192,11 @@ fi
 # shellcheck source=/dev/null
 for f in ~/.bash/bash_completion.d/*; do source "${f}"; done
 
-export PYENV_ROOT="${HOME}/.pyenv"
-
-if [ -d "${PYENV_ROOT}" ]; then
-    export PATH="${PYENV_ROOT}/shims:${PATH}"
-    eval "$(pyenv init -)"
-fi
-
-if which pipenv > /dev/null; then eval "$(pipenv --completion)"; fi
-
-# from https://github.com/rcaloras/bash-preexec
-# shellcheck source=/dev/null
-[[ -f "$HOME/.bash-preexec.sh" ]] && source "$HOME/.bash-preexec.sh"
+# export PYENV_ROOT="${HOME}/.pyenv"
+# if command -v pyenv >/dev/null; then
+#     export PATH="$PYENV_ROOT/bin:$PATH"
+#     eval "$(pyenv init -)"
+# fi 
 
 if which jenv > /dev/null ; then
     export PATH="$HOME/.jenv/bin:$PATH"
@@ -211,3 +204,7 @@ if which jenv > /dev/null ; then
 fi
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+# from https://github.com/rcaloras/bash-preexec
+# shellcheck source=/dev/null
+[[ -f "$HOME/.bash-preexec.sh" ]] && source "$HOME/.bash-preexec.sh"
