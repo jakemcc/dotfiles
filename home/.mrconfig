@@ -1,23 +1,95 @@
-[.homesick/repos/dotfiles]
-checkout = git clone 'git@github.com:jakemcc/dotfiles.git' 'dotfiles'
-update = $HOME/.homesick/repos/homeshick/bin/homeshick pull dotfiles
+[drwsrc/beefalo/beefalo-manual]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/beefalo-manual.git' 'beefalo-manual'
 
-[.homesick/repos/private-dotfiles]
-checkout = git clone 'git@bitbucket.org:jakemcc/private-dotfiles.git' 'private-dotfiles'
-update = $HOME/.homesick/repos/homeshick/bin/homeshick pull private-dotfiles
-chain = true
+[drwsrc/beefalo/dzo]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/dzo.git' 'dzo'
 
-[.homesick/repos/emacs.d]
-checkout = git clone 'git@github.com:jakemcc/emacs.d.git' 'emacs.d'
-update = $HOME/.homesick/repos/homeshick/bin/homeshick pull emacs.d
+[drwsrc/beefalo/hogzilla]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/hogzilla.git' 'hogzilla'
 
-[.homesick/repos/homeshick]
-checkout = git clone 'git://github.com/andsens/homeshick.git' 'homeshick'
-update = $HOME/.homesick/repos/homeshick/bin/homeshick pull homeshick
+[drwsrc/beefalo/huarizonkey]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/huarizonkey.git' 'huarizonkey'
 
-[.homesick/scm_breeze]
-checkout = git clone 'git@github.com:ndbroadbent/scm_breeze.git' 'scm_breeze'
-update = echo "Not pulling scm_breeze"
+[drwsrc/beefalo/humster]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/humster.git' 'humster'
 
-[src/jakemcc/blog]
-checkout = git clone 'git@github.com:jakemcc/jakemccrary.com.git' 'blog'
+[drwsrc/beefalo/hybrid-herder]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/hybrid-herder.git' 'hybrid-herder'
+
+[drwsrc/beefalo/minotaur]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/minotaur.git' 'minotaur'
+
+[drwsrc/beefalo/perftest]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/perftest.git' 'perftest'
+
+[drwsrc/beefalo/perlin]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/perlin.git' 'perlin'
+
+[drwsrc/beefalo/plank]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/plank.git' 'plank'
+
+[drwsrc/beefalo/prius]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/prius.git' 'prius'
+
+[drwsrc/beefalo/reerf]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/reerf.git' 'reerf'
+
+[drwsrc/beefalo/snoflek]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/snoflek.git' 'snoflek'
+
+[drwsrc/beefalo/tomacco]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/tomacco.git' 'tomacco'
+
+[drwsrc/beefalo/wholphin]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/wholphin.git' 'wholphin'
+
+[drwsrc/beefalo/zetland]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/zetland.git' 'zetland'
+
+[drwsrc/beefalo/zubron]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/zubron.git' 'zubron'
+
+[drwsrc/beefalo/blynx]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/blynx.git' 'blynx'
+
+[drwsrc/beefalo/centaur]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/centaur.git' 'centaur'
+
+[drwsrc/beefalo/numigall]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/numigall.git' 'numigall'
+
+[drwsrc/beefalo/beefalo-control]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/beefalo-control.git' 'beefalo-control'
+
+[drwsrc/beefalo/bizzaria]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/bizzaria.git' 'bizzaria'
+
+[drwsrc/beefalo/mulard]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/mulard.git' 'mulard'
+
+[drwsrc/beefalo/stall-recorder]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/stall-recorder.git' 'stall-recorder'
+
+[drwsrc/beefalo/beefalogging]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/beefalogging.git' 'beefalogging'
+
+[drwsrc/beefalo/twap]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/twap.git' 'twap'
+
+[drwsrc/beefalo/pleg]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/pleg.git' 'pleg'
+
+[drwsrc/beefalo/cama]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/cama.git' 'cama'
+
+[drwsrc/beefalo/beef-scripts]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/beef-scripts.git' 'beef-scripts'
+
+[drwsrc/beefalo/splake]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/splake.git' 'splake'
+
+[drwsrc/beefalo/wallaroo]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/wallaroo.git' 'wallaroo'
+
+[drwsrc/beefalo/autospreader]
+checkout = git clone 'git@git.drwholdings.com:ny-dev/autospreader.git' 'autospreader'

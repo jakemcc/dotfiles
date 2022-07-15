@@ -1,6 +1,8 @@
 [user]
   name = Jake McCrary
-	email = jake@jakemccrary.com
+  email = jake@jakemccrary.com
+[includeIf "gitdir:~/drwsrc/"]
+  path = .gitconfig-job
 [alias]
   co = checkout
   ci = commit
