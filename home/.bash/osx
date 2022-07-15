@@ -2,7 +2,7 @@
 
 [[ -s $(brew --prefix)/bin/fasd ]] && eval "$(fasd --init auto)"
 
-# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
 function finished {
     last=$?
@@ -13,3 +13,5 @@ function finished {
 # alias f='(last=$?; say "finished ${last}"; exit ${last})'
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
+
