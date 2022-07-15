@@ -137,45 +137,13 @@ fi
 # Makefile completions
 complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' Makefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
 
-# # SSH Agent stuff
-# SSH_ENV="$HOME/.ssh/environment"
-# function start_agent {
-#   echo "Initialising new SSH agent..."
-#   /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-#   echo succeeded
-#   chmod 600 "${SSH_ENV}"
-#   # shellcheck source=/dev/null
-#   . "${SSH_ENV}" > /dev/null
-#   # /usr/bin/ssh-a  dd;
-# }
-
-# # Source SSH settings, if applicable
-# if [ -f "${SSH_ENV}" ]; then
-#   # shellcheck source=/dev/null
-#   . "${SSH_ENV}" > /dev/null
-#   #ps ${SSH_AGENT_PID} doesn't work under cywgin
-#   ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-#     start_agent;
-#   }
-# else
-#   start_agent;
-# fi
-
 # shellcheck source=/dev/null
 [[ -f "$HOME/.scm_breeze/scm_breeze.sh" ]] && source "${HOME}/.scm_breeze/scm_breeze.sh"
-
-# shellcheck source=/dev/null
-[[ -f "/usr/local/opt/chruby/share/chruby/chruby.sh" ]] && source /usr/local/opt/chruby/share/chruby/chruby.sh
-# shellcheck source=/dev/null
-[[ -f "/usr/local/share/chruby/auto.sh" ]] && source /usr/local/share/chruby/auto.sh
-function_exists chruby && chruby ruby-2.6.3
 
 # Imperative that this environment variable always reflects the output
 # of the tty command.
 GPG_TTY=$(tty)
 export GPG_TTY
-
-export ANSIBLE_COW_SELECTION=small
 
 if [ -d "$HOME/.homesick" ]; then
   # shellcheck source=/dev/null
@@ -192,19 +160,4 @@ fi
 # shellcheck source=/dev/null
 for f in ~/.bash/bash_completion.d/*; do source "${f}"; done
 
-# export PYENV_ROOT="${HOME}/.pyenv"
-# if command -v pyenv >/dev/null; then
-#     export PATH="$PYENV_ROOT/bin:$PATH"
-#     eval "$(pyenv init -)"
-# fi 
-
-if which jenv > /dev/null ; then
-    export PATH="$HOME/.jenv/bin:$PATH"
-    eval "$(jenv init -)"
-fi
-
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
-
-# from https://github.com/rcaloras/bash-preexec
-# shellcheck source=/dev/null
-[[ -f "$HOME/.bash-preexec.sh" ]] && source "$HOME/.bash-preexec.sh"
