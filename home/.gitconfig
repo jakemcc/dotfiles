@@ -32,3 +32,5 @@
   template = ~/.git-templates/commit_message.txt
 [pull]
 	rebase = false
+[merge]
+	conflictstyle = diff3
