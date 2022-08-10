@@ -1,0 +1,3 @@
+{:lint-as {expectations/expect-let clojure.core/let
+           expectations/expect-let-focused clojure.core/let
+           expectations/from-each clojure.core/for}}
