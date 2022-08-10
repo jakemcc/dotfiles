@@ -1,4 +1,5 @@
 {:java {:download-jdk-source? true}
  :clean {:ns-inner-blocks-indentation :same-line
          :ns-import-classes-indentation :same-line}
+ :experimental {:dep-graph-queries true}
  :log-path "/tmp/clojure-lsp.out"}
