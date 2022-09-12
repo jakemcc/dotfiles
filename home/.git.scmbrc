@@ -1,0 +1,117 @@
+# -*- mode: Shell-script; -*-
+#
+# Git File Shortcuts Config
+# ----------------------------------------------
+# - Set your preferred prefix for env variable file shortcuts.
+#   (I chose 'e' because it is easy to slide your finger to it from '$'.)
+export git_env_char="e"
+# - Max changed files before reverting to 'git status'. git_status_shortcuts() will be slower for lots of changed files.
+export gs_max_changes="150"
+# - When using the git_add_shorcuts() command, automatically invoke 'git rm' to remove deleted files?
+export ga_auto_remove="yes"
+
+# - Set the following option to 'no' if you want to use your existing git aliases
+#   instead of overwriting them.
+#   Note: Bash tab completion will not be automatically set up for your aliases if you disable this option.
+export git_setup_aliases="yes"
+
+
+# Git Index Config
+# ----------------------------------------------
+# Repos will be automatically added from this directory.
+export GIT_REPO_DIR="$HOME/src"
+# Add the full paths of any extra repos to GIT_REPOS, separated with ':'
+# e.g. "/opt/rails/project:/opt/rails/another project:$HOME/other/repo"
+export GIT_REPOS=""
+export git_status_command="git_status_shortcuts"
+# Alias
+git_index_alias="c"    # Switch to a repo in the (c)ode directory
+
+
+# Git Aliases
+# ----------------------------------------------
+git_alias="b"
+
+# 1. 'SCM Breeze' functions
+git_status_shortcuts_alias="bs"
+git_add_shortcuts_alias="ba"
+git_add_patch_alias="bap"
+git_add_updated_alias="bau"
+git_show_files_alias="bsf"
+exec_scmb_expand_args_alias="be"
+# 2. Commands that handle paths (with shortcut args expanded)
+git_checkout_alias="bco"
+git_checkout_branch_alias="bcob"
+git_commit_alias="bc"
+git_commit_verbose_alias="bcv"
+git_reset_alias="brs"
+git_reset_hard_alias="brsh"
+git_rm_alias="brm"
+git_blame_alias="bbl"
+git_diff_alias="bd"
+git_diff_word_alias="bdw"
+git_diff_cached_alias="bdc"
+git_difftool_alias="bdt"
+# 3. Standard commands
+git_clone_alias="bcl"
+git_fetch_alias="bf"
+git_fetch_all_alias="bfa"
+git_fetch_and_rebase_alias="bfr"
+git_pull_alias="bpl"
+git_push_alias="bps"
+alias bpsn='bps --no-verify'
+git_push_force_alias="bpsf"
+git_pull_then_push_alias="bpls"
+git_status_original_alias="bst"
+git_status_short_alias="bss"
+git_clean_alias="bce"
+git_clean_force_alias="bcef"
+git_add_all_alias="baa"
+git_commit_all_alias="bca"
+git_commit_amend_alias="bcm"
+git_commit_amend_no_msg_alias="bcmh"
+git_commit_no_msg_alias="bch"
+git_remote_alias="br"
+git_branch_alias="bb"
+git_branch_all_alias="bba"
+git_branch_move_alias="bbm"
+git_branch_delete_alias="bbd"
+git_branch_delete_force_alias="bbD"
+git_rebase_alias="brb"
+git_rebase_interactive_alias="brbi"
+git_rebase_alias_continue="brbc"
+git_rebase_alias_abort="brba"
+git_reset_last_commit="brsl"
+git_merge_alias="bm"
+git_merge_no_fast_forward_alias="bmnff"
+git_merge_only_fast_forward_alias="bmff"
+git_cherry_pick_alias="bcp"
+git_log_alias="bl"
+git_log_all_alias="bla"
+git_log_stat_alias="bls"
+git_log_graph_alias="blg"
+git_show_alias="bsh"
+git_show_summary="bsm"  # (gss taken by git status short)
+git_stash_alias="bash"
+git_stash_apply_alias="basha"
+git_stash_pop_alias="bashp"
+git_stash_list_alias="bashl"
+git_tag_alias="bt"
+
+
+# Git Keyboard Shortcuts
+# ----------------------------------------------
+# Keyboard shortcuts are on by default. Set this to 'false' to disable them.
+git_keyboard_shortcuts_enabled="false"
+git_commit_all_keys="\C-x "        		  # CTRL+x, SPACE
+git_add_and_commit_keys="\C-xc"    		  # CTRL+x, c
+git_commit_all_with_ci_skip_keys="\C-xv"  # CTRL+x, v    (Appends [ci skip] to commit message)
+
+
+# Shell Command Wrapping
+# ----------------------------------------------
+# Expand numbered args for common shell commands
+shell_command_wrapping_enabled="true"
+# Here you can tweak the list of wrapped commands.
+scmb_wrapped_shell_commands="vim emacs gedit cat rm cp mv ln cd ls less subl code"
+shell_ls_aliases_enabled="true"
