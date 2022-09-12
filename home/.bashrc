@@ -137,8 +137,22 @@ fi
 # Makefile completions
 complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' Makefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
 
-# shellcheck source=/dev/null
-[[ -f "$HOME/.scm_breeze/scm_breeze.sh" ]] && source "${HOME}/.scm_breeze/scm_breeze.sh"
+if command scmpuff > /dev/null; then
+    eval "$(scmpuff init -s --aliases=false)"
+    alias bs='scmpuff_status'
+    alias ba='git add'
+    alias bd='git diff'
+    alias bco='git checkout'
+    alias brs='git reset'
+    alias bps='git push'
+    alias bpsn='bps --no-verify'
+    alias bb='git branch'
+    alias bba='bb --all'
+    alias rm='scmpuff exec rm'
+    alias ls='scmpuff exec ls'
+else
+    echo "Install scmpuff: https://github.com/mroth/scmpuff"
+fi
 
 # Imperative that this environment variable always reflects the output
 # of the tty command.
