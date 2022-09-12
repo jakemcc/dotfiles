@@ -149,7 +149,6 @@ if command scmpuff > /dev/null; then
     alias bb='git branch'
     alias bba='bb --all'
     alias rm='scmpuff exec rm'
-    alias ls='scmpuff exec ls'
 else
     echo "Install scmpuff: https://github.com/mroth/scmpuff"
 fi
