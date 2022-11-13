@@ -1,6 +1,8 @@
 [user]
   name = Jake McCrary
-	email = jake@jakemccrary.com
+  email = jake@jakemccrary.com
+[includeIf "gitdir:~/drwsrc/"]
+  path = .gitconfig-job
 [alias]
   co = checkout
   ci = commit
@@ -32,3 +34,5 @@
   template = ~/.git-templates/commit_message.txt
 [pull]
 	rebase = false
+[merge]
+	conflictstyle = diff3
