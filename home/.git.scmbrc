@@ -92,7 +92,6 @@ git_log_stat_alias="bls"
 git_log_graph_alias="blg"
 git_show_alias="bsh"
 git_show_summary="bsm"  # (gss taken by git status short)
-git_stash_alias="bash"
 git_stash_apply_alias="basha"
 git_stash_pop_alias="bashp"
 git_stash_list_alias="bashl"
