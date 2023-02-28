@@ -81,6 +81,16 @@ my_pathmunge "$HOME/local/bin"
 # shellcheck source=/dev/null
 [[ -f "$HOME/.bash/$MYOS" ]] && source "$HOME/.bash/$MYOS"
 
+show_pair() {
+    if test -f ~/.pair-state.edn
+    then
+        output=$(wc -m ~/.pair-state.edn | awk '{print $1}')
+        if [[ "$output" != "2" ]]; then
+            echo -n "👥"
+        fi
+    fi
+    echo -n ""
+}
 
 # Using https://github.com/rcaloras/bash-preexec
 preexec() {
@@ -128,7 +138,7 @@ if [ -e "$GIT_COMPLETION" ]; then
   if [ -e "$GIT_PROMPT" ]; then
       # shellcheck source=/dev/null
       . "$GIT_PROMPT"
-      export PS1='\[\033[00m\]$? [last: ${timer_show}] \[\033[0;31m\]$(date +%T) \[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]$(__git_ps1 " (%s)")\[\033[00m\]\n$ '
+      export PS1='\[\033[00m\]$? [last: ${timer_show}] \[\033[0;31m\]$(date +%T) \[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]$(__git_ps1 " (%s)")\[\033[00m\] $(show_pair)\n$ '
   fi
 else
     echo "${GIT_COMPLETION} does not exist?"
