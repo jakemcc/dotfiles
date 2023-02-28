@@ -23,4 +23,8 @@ function lan() {
   ./lein autoexpect :notify | grep -v 'Problem communicating with notification center' --line-buffered
 }
 
+function lane() {
+  ./lein autoexpect :notify :exit-on-success  | grep -v 'Problem communicating with notification center' --line-buffered
+}
+
 alias bgo='beef git open'
