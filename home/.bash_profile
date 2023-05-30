@@ -16,3 +16,5 @@ fi
 # from https://github.com/rcaloras/bash-preexec
 # shellcheck source=/dev/null
 [[ -f "$HOME/.bash-preexec.sh" ]] && source "$HOME/.bash-preexec.sh"
+
+[ -s "/Users/jmccrary/.scm_breeze/scm_breeze.sh" ] && source "/Users/jmccrary/.scm_breeze/scm_breeze.sh"
