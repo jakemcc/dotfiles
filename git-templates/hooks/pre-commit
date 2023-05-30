@@ -39,6 +39,17 @@ quit() {
 # Redirect output to stderr.
 exec 1>&2
 
+files_with_dbg=$(git diff --cached --name-only --diff-filter=ACM $against | xargs -I{} grep "dbg" -l {} | grep -v 'defmacro.*dbg' | tr '\n' ' ')
+if [ "x${files_with_dbg}x" != "xx" ]; then
+    tput setaf 1
+    echo "File being committed with 'dbg' in it:"
+    for f in ${files_with_dbg}; do
+        echo $f
+    done
+    tput sgr0
+    quit 1
+fi
+
 files_with_nocommit=$(git diff --cached --name-only --diff-filter=ACM $against | xargs -I{} grep -i "nocommit" -l {} | tr '\n' ' ')
 if [ "x${files_with_nocommit}x" != "xx" ]; then
     tput setaf 1
