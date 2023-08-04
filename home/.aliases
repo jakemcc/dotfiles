@@ -28,3 +28,5 @@ function lane() {
 }
 
 alias bgo='beef git open'
+alias bgs='beef git stp'
+alias bgp='beef git pull'
