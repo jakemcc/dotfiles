@@ -3,3 +3,4 @@
 
 --glob=!.clj-kondo
 --glob=!.lsp
+--glob=!.git
