@@ -182,3 +182,5 @@ for f in ~/.bash/bash_completion.d/*; do source "${f}"; done
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 [ -s "/Users/jmccrary/.scm_breeze/scm_breeze.sh" ] && source "/Users/jmccrary/.scm_breeze/scm_breeze.sh"
+
+export LSP_USE_PLISTS=true
