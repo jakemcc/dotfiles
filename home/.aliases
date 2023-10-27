@@ -3,7 +3,6 @@
 alias l='ls'
 alias la="ls -latr"
 alias ll="ls -ltr"
-alias lsd="ls | grep ^d"
 alias mkdir='mkdir -p'
 alias grep='grep --color=auto'
 
@@ -24,7 +23,7 @@ function lan() {
 }
 
 function lane() {
-  ./lein autoexpect :notify :exit-on-success | grep -v 'Problem communicating with notification center' --line-buffered
+  ./lein autoexpect :notify :exit-on-pass | grep -v 'Problem communicating with notification center' --line-buffered
 }
 
 alias bgo='beef git open'
