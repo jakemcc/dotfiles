@@ -1,0 +1,37 @@
+#!/bin/bash
+
+set -e
+
+if [ $# -eq 0 ]; then
+    echo "No command provided. Usage: $0 '<command>'"
+    exit 1
+fi
+
+COMMAND="${1}"
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+echo "Running command: $COMMAND"
+
+# Get the total number of commits in the repository
+TOTAL_COMMITS=$(git rev-list --count HEAD)
+TOTAL_COMMITS=$((TOTAL_COMMITS - 1))  # Subtract 1 to avoid off-by-one error
+
+# Calculate the number of commits to look at
+NUM_COMMITS=20
+if [ $TOTAL_COMMITS -lt 20 ]; then
+    NUM_COMMITS=$TOTAL_COMMITS
+fi
+
+# Get the range of commits to check
+COMMIT_RANGE="HEAD~$NUM_COMMITS..HEAD"
+
+for commit in $(git rev-list $COMMIT_RANGE); do
+    echo "Checking out commit $commit..."
+    git checkout -q $commit
+    COMMIT_DATE=$(git show -s --format=%ci $commit)
+    echo "Date of commit: $COMMIT_DATE"
+    eval $COMMAND
+    echo "--------------------------------"
+done
+
+git checkout -q $CURRENT_BRANCH
