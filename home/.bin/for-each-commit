@@ -25,12 +25,17 @@ fi
 # Get the range of commits to check
 COMMIT_RANGE="HEAD~$NUM_COMMITS..HEAD"
 
+run_command() {
+    local cmd="$1"
+    bash -c "$cmd"
+}
+
 for commit in $(git rev-list $COMMIT_RANGE); do
     echo "Checking out commit $commit..."
     git checkout -q $commit
     COMMIT_DATE=$(git show -s --format=%ci $commit)
     echo "Date of commit: $COMMIT_DATE"
-    eval $COMMAND
+    run_command "$COMMAND"
     echo "--------------------------------"
 done
 
